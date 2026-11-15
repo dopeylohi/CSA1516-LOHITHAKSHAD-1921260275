@@ -1,0 +1,31 @@
+# Run on Sun Nov 15 12:22:39 UTC 2026
+REQUEST: https://api.open-meteo.com/v1/forecast?latitude=13.08&longitude=80.27&current_weather=true
+STATUS: 200
+RESPONSE: {
+  "latitude": 13.110721,
+  "longitude": 80.2459,
+  "generationtime_ms": 0.09870529174804688,
+  "utc_offset_seconds": 0,
+  "timezone": "GMT",
+  "timezone_abbreviation": "GMT",
+  "elevation": 10.0,
+  "current_weather_units": {
+    "time": "iso8601",
+    "interval": "seconds",
+    "temperature": "\u00b0C",
+    "windspeed": "km/h",
+    "winddirection": "\u00b0",
+    "is_day": "",
+    "weathercode": "wmo code"
+  },
+  "current_weather": {
+    "time": "2026-11-15T12:15",
+    "interval": 900,
+    "temperature": 27.4,
+    "windspeed": 11.0,
+    "winddirection": 11,
+    "is_day": 0,
+    "weathercode": 3
+  }
+}
+Temperature 27.4 C, wind 11.0 km/h
