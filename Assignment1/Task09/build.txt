@@ -1,0 +1,40 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  11.78kB
+Step 1/5 : FROM python:3.12-slim
+3.12-slim: Pulling from library/python
+05e0eee5572e: Pulling fs layer
+2dc99d2d0a39: Pulling fs layer
+37fb86c2a767: Pulling fs layer
+68bced9e0afa: Pulling fs layer
+05e0eee5572e: Download complete
+68bced9e0afa: Download complete
+e0a5f9afcd02: Download complete
+f26199dfe4a6: Download complete
+37fb86c2a767: Download complete
+2dc99d2d0a39: Download complete
+37fb86c2a767: Pull complete
+68bced9e0afa: Pull complete
+05e0eee5572e: Pull complete
+2dc99d2d0a39: Pull complete
+Digest: sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+Status: Downloaded newer image for python:3.12-slim
+ ---> 5e2bdb1b0d54
+Step 2/5 : WORKDIR /app
+ ---> Running in 6d261eae901e
+ ---> Removed intermediate container 6d261eae901e
+ ---> 737b7a4f268e
+Step 3/5 : COPY app.py .
+ ---> ff73f766f938
+Step 4/5 : EXPOSE 8000
+ ---> Running in b48c189cd16d
+ ---> Removed intermediate container b48c189cd16d
+ ---> a9fb79a7da01
+Step 5/5 : CMD ["python", "app.py"]
+ ---> Running in 228cc074b800
+ ---> Removed intermediate container 228cc074b800
+ ---> 49fb7b4c74af
+Successfully built 49fb7b4c74af
+Successfully tagged uni-api:latest

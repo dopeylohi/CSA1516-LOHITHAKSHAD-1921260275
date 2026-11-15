@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Campus - Student Services (PoC)</title>
+<style>body{font-family:sans-serif;max-width:640px;margin:2rem auto;padding:0 1rem}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid #888;padding:6px;text-align:left}</style>
+</head><body>
+<h1>Smart Campus Student Services</h1>
+<p>Static page hosted on GitHub Pages as a SaaS/PaaS-style hosting proof of concept for CSA15 Assignment 1, Task 9. Student: Lohithaksha D, 1921260275.</p>
+<table>
+<tr><th>Service</th><th>Endpoint</th><th>Method</th></tr>
+<tr><td>Result lookup</td><td>/api/results/{regno}</td><td>GET</td></tr>
+<tr><td>Fee balance</td><td>/api/fees/{regno}</td><td>GET</td></tr>
+<tr><td>Fee payment</td><td>/api/fees/pay</td><td>POST</td></tr>
+<tr><td>Library search</td><td>/api/library/search?q=</td><td>GET</td></tr>
+</table>
+<p>The API behind these endpoints runs in a Docker container (see Task09 folder).</p>
+</body></html>

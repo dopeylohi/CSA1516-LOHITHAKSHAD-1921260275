@@ -1,0 +1,24 @@
+$ curl http://localhost:8000/health
+{"status": "ok"} [HTTP 200]
+
+$ curl http://localhost:8000/api/results/S1001
+{"regno": "S1001", "name": "Sample Student A", "semester": 2, "gpa": 8.4} [HTTP 200]
+
+$ curl http://localhost:8000/api/results/S9999
+{"error": "student not found"} [HTTP 404]
+
+$ curl http://localhost:8000/api/fees/S1001
+{"regno": "S1001", "balance": 45000, "due": 45000, "paid": 0} [HTTP 200]
+
+$ curl -X POST -H Content-Type: application/json -d {"regno":"S1001","amount":15000} http://localhost:8000/api/fees/pay
+{"regno": "S1001", "status": "payment accepted", "balance": 30000} [HTTP 200]
+
+$ curl -X POST -H Content-Type: application/json -d {"regno":"S1001","amount":-5} http://localhost:8000/api/fees/pay
+{"error": "invalid amount"} [HTTP 400]
+
+$ curl http://localhost:8000/api/library/search?q=cloud
+{"query": "cloud", "results": [{"id": 2, "title": "Cloud Computing Principles", "available": false}]} [HTTP 200]
+
+$ curl http://localhost:8000/nothing
+{"error": "not found"} [HTTP 404]
+
