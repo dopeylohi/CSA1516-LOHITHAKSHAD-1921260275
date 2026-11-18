@@ -1,0 +1,20 @@
+Station raw GB/day: 2.88 | stored: 0.96
+Daily stored GB: 200.96 | 1-yr replicated TB: 220.05120000000002
+Nodes storage: 3.2745714285714294 | Nodes scan: 0.015506172839506173
+Imagery doubled TB: 439.05119999999994 | nodes: 6.5335
+
+ORIGINAL release joined with public list:
+('Asha', 1, 'Pension', 1500)
+('Meena', 5, 'Scholarship', 3000)
+('Ravi', 7, 'Pension', 1500)
+
+REPAIRED (PIN->3 digits, DOB->year), join result:
+('Asha', 2) -> matches 2 records (cannot single out)
+('Meena', 2) -> matches 2 records (cannot single out)
+('Ravi', 2) -> matches 2 records (cannot single out)
+Smallest group size k: 2
+
+Avg amount per scheme (same before/after repair, since Amount/Scheme untouched):
+('Disability', 2000.0)
+('Pension', 1500.0)
+('Scholarship', 3000.0)
