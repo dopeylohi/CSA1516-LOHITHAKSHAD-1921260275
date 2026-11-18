@@ -1,0 +1,242 @@
+{
+ "env": {
+  "python": "3.14.4",
+  "os": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "cpus": 8,
+  "ram_GB_visible": 8.7,
+  "numpy": "2.5.5",
+  "pyarrow": "26.0.1",
+  "cryptography": "50.0.2"
+ },
+ "A": {
+  "chain_ok": true
+ },
+ "B": {
+  "unique": 2000,
+  "predicted": 1200,
+  "actual": 1200,
+  "correct": 1200
+ },
+ "C": {
+  "lattice": [
+   {
+    "pin_digits": 6,
+    "dob": "exact",
+    "k": 1,
+    "risk": 1200,
+    "e_pin": 0.0,
+    "e_year": 0.0,
+    "loss": 0.0
+   },
+   {
+    "pin_digits": 6,
+    "dob": "month",
+    "k": 1,
+    "risk": 1153,
+    "e_pin": 0.0,
+    "e_year": 0.0,
+    "loss": 0.0
+   },
+   {
+    "pin_digits": 6,
+    "dob": "year",
+    "k": 1,
+    "risk": 663,
+    "e_pin": 0.0,
+    "e_year": 0.0,
+    "loss": 0.0
+   },
+   {
+    "pin_digits": 6,
+    "dob": "5y",
+    "k": 1,
+    "risk": 60,
+    "e_pin": 0.0,
+    "e_year": 6.386937224878836,
+    "loss": 3.193468612439418
+   },
+   {
+    "pin_digits": 6,
+    "dob": "10y",
+    "k": 1,
+    "risk": 7,
+    "e_pin": 0.0,
+    "e_year": 6.572832058973968,
+    "loss": 3.286416029486984
+   },
+   {
+    "pin_digits": 5,
+    "dob": "exact",
+    "k": 1,
+    "risk": 1179,
+    "e_pin": 3.575609471638934,
+    "e_year": 0.0,
+    "loss": 1.787804735819467
+   },
+   {
+    "pin_digits": 5,
+    "dob": "month",
+    "k": 1,
+    "risk": 734,
+    "e_pin": 3.575609471638934,
+    "e_year": 0.0,
+    "loss": 1.787804735819467
+   },
+   {
+    "pin_digits": 5,
+    "dob": "year",
+    "k": 1,
+    "risk": 30,
+    "e_pin": 3.575609471638934,
+    "e_year": 0.0,
+    "loss": 1.787804735819467
+   },
+   {
+    "pin_digits": 5,
+    "dob": "5y",
+    "k": 1,
+    "risk": 2,
+    "e_pin": 3.575609471638934,
+    "e_year": 6.386937224878836,
+    "loss": 4.981273348258885
+   },
+   {
+    "pin_digits": 5,
+    "dob": "10y",
+    "k": 2,
+    "risk": 0,
+    "e_pin": 3.575609471638934,
+    "e_year": 6.572832058973968,
+    "loss": 5.0742207653064515
+   },
+   {
+    "pin_digits": 4,
+    "dob": "exact",
+    "k": 1,
+    "risk": 1136,
+    "e_pin": 3.6594243332022796,
+    "e_year": 0.0,
+    "loss": 1.8297121666011398
+   },
+   {
+    "pin_digits": 4,
+    "dob": "month",
+    "k": 1,
+    "risk": 253,
+    "e_pin": 3.6594243332022796,
+    "e_year": 0.0,
+    "loss": 1.8297121666011398
+   },
+   {
+    "pin_digits": 4,
+    "dob": "year",
+    "k": 8,
+    "risk": 0,
+    "e_pin": 3.6594243332022796,
+    "e_year": 0.0,
+    "loss": 1.8297121666011398
+   },
+   {
+    "pin_digits": 4,
+    "dob": "5y",
+    "k": 69,
+    "risk": 0,
+    "e_pin": 3.6594243332022796,
+    "e_year": 6.386937224878836,
+    "loss": 5.023180779040558
+   },
+   {
+    "pin_digits": 4,
+    "dob": "10y",
+    "k": 69,
+    "risk": 0,
+    "e_pin": 3.6594243332022796,
+    "e_year": 6.572832058973968,
+    "loss": 5.116128196088123
+   },
+   {
+    "pin_digits": 3,
+    "dob": "exact",
+    "k": 1,
+    "risk": 1136,
+    "e_pin": 3.6594243332022796,
+    "e_year": 0.0,
+    "loss": 1.8297121666011398
+   },
+   {
+    "pin_digits": 3,
+    "dob": "month",
+    "k": 1,
+    "risk": 253,
+    "e_pin": 3.6594243332022796,
+    "e_year": 0.0,
+    "loss": 1.8297121666011398
+   },
+   {
+    "pin_digits": 3,
+    "dob": "year",
+    "k": 8,
+    "risk": 0,
+    "e_pin": 3.6594243332022796,
+    "e_year": 0.0,
+    "loss": 1.8297121666011398
+   },
+   {
+    "pin_digits": 3,
+    "dob": "5y",
+    "k": 69,
+    "risk": 0,
+    "e_pin": 3.6594243332022796,
+    "e_year": 6.386937224878836,
+    "loss": 5.023180779040558
+   },
+   {
+    "pin_digits": 3,
+    "dob": "10y",
+    "k": 69,
+    "risk": 0,
+    "e_pin": 3.6594243332022796,
+    "e_year": 6.572832058973968,
+    "loss": 5.116128196088123
+   }
+  ],
+  "chosen": {
+   "pin_digits": 4,
+   "dob": "year",
+   "k": 8,
+   "risk": 0,
+   "e_pin": 3.6594243332022796,
+   "e_year": 0.0,
+   "loss": 1.8297121666011398
+  }
+ },
+ "D_overhead": {
+  "plain": [
+   0.02013981399977638,
+   0.019012193999969895,
+   0.019295220999993035
+  ],
+  "enc": [
+   0.36606951900012064,
+   0.3290232039998955,
+   0.3435119929999928
+  ],
+  "encrypt_once_s": 0.4058597240000381,
+  "same": true
+ },
+ "D_integrity": {
+  "alter": {
+   "bad_record_macs": [
+    100
+   ],
+   "count_ok": true,
+   "file_sha_ok": false
+  },
+  "delete": {
+   "bad_record_macs": [],
+   "count_ok": false,
+   "file_sha_ok": false
+  },
+  "audit_break_at": 1
+ }
+}

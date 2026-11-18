@@ -1,0 +1,321 @@
+{
+ "env": {
+  "python": "3.14.4",
+  "os": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "cpus": 8,
+  "ram_GB_visible": 8.7,
+  "numpy": "2.5.5",
+  "pyarrow": "26.0.1",
+  "cryptography": "50.0.2"
+ },
+ "generator_truth_bad_rows": {
+  "200k": 6011,
+  "1M": 29718,
+  "5M": 150225
+ },
+ "sample": {
+  "stats": {
+   "read": 20000,
+   "accepted": 19421,
+   "rejected": {
+    "malformed": 191,
+    "null_speed": 190,
+    "bad_speed": 198
+   },
+   "per_mapper_records": [
+    2497,
+    2502,
+    2500,
+    2494,
+    2503,
+    2501,
+    2501,
+    2502
+   ],
+   "per_mapper_s": [
+    0.01,
+    0.012,
+    0.012,
+    0.018,
+    0.01,
+    0.01,
+    0.01,
+    0.011
+   ],
+   "shuffle_pairs": 12215,
+   "shuffle_bytes": 476897,
+   "reducer_load": [
+    {
+     "reducer": 0,
+     "keys": 604,
+     "records": 4898
+    },
+    {
+     "reducer": 1,
+     "keys": 596,
+     "records": 4809
+    },
+    {
+     "reducer": 2,
+     "keys": 604,
+     "records": 4961
+    },
+    {
+     "reducer": 3,
+     "keys": 595,
+     "records": 4753
+    }
+   ],
+   "stage_s": {
+    "map": 0.3961875330001021,
+    "shuffle": 0.004858730000250944,
+    "reduce": 0.0037100080003256153
+   }
+  },
+  "ref_acc": 19421,
+  "ref_rej": 579,
+  "identical": true,
+  "maxdiff": 1.4210854715202004e-14
+ },
+ "scaled": [
+  {
+   "size": "200k",
+   "events": 200000,
+   "runs_s": [
+    0.21554404900007285,
+    0.20919213299976036,
+    0.1741756780002106
+   ],
+   "stage_s": {
+    "map": 0.15630952999981673,
+    "shuffle": 0.0074643299999479495,
+    "reduce": 0.007464628999969136
+   },
+   "dominant": "map",
+   "shuffle_pairs": 19200,
+   "shuffle_bytes": 749312,
+   "read": 200000,
+   "accepted": 193989,
+   "rejected": {
+    "malformed": 2023,
+    "null_speed": 2015,
+    "bad_speed": 1973
+   },
+   "reducer_load": [
+    {
+     "reducer": 0,
+     "keys": 604,
+     "records": 48957
+    },
+    {
+     "reducer": 1,
+     "keys": 596,
+     "records": 48081
+    },
+    {
+     "reducer": 2,
+     "keys": 604,
+     "records": 48878
+    },
+    {
+     "reducer": 3,
+     "keys": 596,
+     "records": 48073
+    }
+   ],
+   "per_mapper_s": [
+    0.077,
+    0.08,
+    0.085,
+    0.077,
+    0.076,
+    0.074,
+    0.077,
+    0.066
+   ]
+  },
+  {
+   "size": "1M",
+   "events": 1000000,
+   "runs_s": [
+    0.4880595979998361,
+    0.45003717200006577,
+    0.5643915179998658
+   ],
+   "stage_s": {
+    "map": 0.5443562600003133,
+    "shuffle": 0.008140172999901552,
+    "reduce": 0.007768928000132291
+   },
+   "dominant": "map",
+   "shuffle_pairs": 19200,
+   "shuffle_bytes": 749312,
+   "read": 1000000,
+   "accepted": 970282,
+   "rejected": {
+    "bad_speed": 9934,
+    "null_speed": 9848,
+    "malformed": 9936
+   },
+   "reducer_load": [
+    {
+     "reducer": 0,
+     "keys": 604,
+     "records": 244327
+    },
+    {
+     "reducer": 1,
+     "keys": 596,
+     "records": 241678
+    },
+    {
+     "reducer": 2,
+     "keys": 604,
+     "records": 243833
+    },
+    {
+     "reducer": 3,
+     "keys": 596,
+     "records": 240444
+    }
+   ],
+   "per_mapper_s": [
+    0.434,
+    0.478,
+    0.475,
+    0.447,
+    0.48,
+    0.432,
+    0.449,
+    0.455
+   ]
+  },
+  {
+   "size": "5M",
+   "events": 5000000,
+   "runs_s": [
+    2.0217638570002237,
+    1.8254661460000534,
+    1.8768257159999848
+   ],
+   "stage_s": {
+    "map": 1.8521486340000592,
+    "shuffle": 0.010955013000057079,
+    "reduce": 0.00908957100000407
+   },
+   "dominant": "map",
+   "shuffle_pairs": 19200,
+   "shuffle_bytes": 757496,
+   "read": 5000000,
+   "accepted": 4849775,
+   "rejected": {
+    "null_speed": 50173,
+    "malformed": 50005,
+    "bad_speed": 50047
+   },
+   "reducer_load": [
+    {
+     "reducer": 0,
+     "keys": 604,
+     "records": 1219241
+    },
+    {
+     "reducer": 1,
+     "keys": 596,
+     "records": 1204086
+    },
+    {
+     "reducer": 2,
+     "keys": 604,
+     "records": 1222855
+    },
+    {
+     "reducer": 3,
+     "keys": 596,
+     "records": 1203593
+    }
+   ],
+   "per_mapper_s": [
+    1.766,
+    1.624,
+    1.642,
+    1.648,
+    1.778,
+    1.79,
+    1.757,
+    1.651
+   ]
+  }
+ ],
+ "boundary": {
+  "tiny": {
+   "per_mapper": [
+    0,
+    1,
+    1,
+    1,
+    2,
+    1,
+    1,
+    1
+   ],
+   "reducers": [
+    {
+     "reducer": 0,
+     "keys": 0,
+     "records": 0
+    },
+    {
+     "reducer": 1,
+     "keys": 2,
+     "records": 2
+    },
+    {
+     "reducer": 2,
+     "keys": 1,
+     "records": 2
+    },
+    {
+     "reducer": 3,
+     "keys": 1,
+     "records": 1
+    }
+   ],
+   "rejected": {
+    "null_speed": 1,
+    "bad_speed": 1,
+    "malformed": 1
+   },
+   "ok": true
+  },
+  "skew": {
+   "reducers": [
+    {
+     "reducer": 0,
+     "keys": 303,
+     "records": 56898
+    },
+    {
+     "reducer": 1,
+     "keys": 298,
+     "records": 42521
+    },
+    {
+     "reducer": 2,
+     "keys": 302,
+     "records": 57048
+    },
+    {
+     "reducer": 3,
+     "keys": 298,
+     "records": 41459
+    }
+   ],
+   "busiest_pct": 28.82289340460576,
+   "ok": true,
+   "rejected": {
+    "null_speed": 2075
+   }
+  }
+ }
+}

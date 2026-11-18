@@ -1,0 +1,54 @@
+
+===== TASK 4 - ENVIRONMENT =====
+ENV: {'python': '3.14.4', 'os': 'Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43', 'cpus': 8, 'ram_GB_visible': 8.7, 'numpy': '2.5.5', 'pyarrow': '26.0.1', 'cryptography': '50.0.2'}
+
+===== 4.1 / 4.2 BASELINE (200,000 lines, 5% duplicates) =====
+read 200000 | kept 178589 | quarantined 21411 | time 2.999±0.119s | shuffle 16518 KB
+
+DECISION TRACE (2 sample records per rule): line | decision | why | raw
+  OK                     line      2 | keep   | all checks passed | 160,S05,49.6,2026-02-01T03:58:23
+  OK                     line      3 | keep   | all checks passed | 372,S18,71.8,2026-02-01T15:23:45
+  R1_schema              line     56 | reject | expected 4 fields, got 3 | 135,S02,86.5
+  R1_schema              line    137 | reject | expected 4 fields, got 3 | 379,S02,85.5
+  R3_missing_speed       line     39 | reject | speed is empty | 380,S03,,2026-02-02T01:46:52
+  R3_missing_speed       line    139 | reject | speed is empty | 372,S17,,2026-02-02T07:08:22
+  R5_out_of_range        line     14 | reject | speed 999.0 outside 0-200 | 315,S20,999,2026-02-02T01:39:35
+  R5_out_of_range        line     38 | reject | speed -5.0 outside 0-200 | 271,S05,-5,2026-02-02T16:14:33
+  R6_bad_time            line     16 | reject | time='32/13/2026' | 62,S15,77.5,32/13/2026
+  R6_bad_time            line    256 | reject | time='32/13/2026' | 128,S18,87.1,32/13/2026
+  R7_normalise_segment   line     66 | repair | ' s11 ' -> 'S11' | 145, s11 ,64.9,2026-02-02T09:19:27
+  R7_normalise_segment   line    104 | repair | ' s12 ' -> 'S12' | 64, s12 ,79.3,2026-02-02T20:21:31
+
+PER-RULE SUMMARY
+rule | decision | records
+OK                     | keep          | 176686
+R1_schema              | reject        | 1984
+R3_missing_speed       | reject        | 3970
+R5_out_of_range        | reject        | 4036
+R6_bad_time            | reject        | 2036
+R7_normalise_segment   | repair (kept) | 1903
+R8_duplicate           | reject        | 9385
+check: sum of rule counts = 200000 = lines read 200000
+quarantine file: results/quarantine_base.csv (line_no, rule, reason, raw)
+
+>>>>>> SCREENSHOT NOW: 4.1/4.2 - totals, decision trace and per-rule table <<<<<<
+
+===== 4.3 PREDICT BEFORE EXECUTE: duplicates 5% -> 40% (same 200,000 lines) =====
+PREDICTION (recorded 09:18:03, BEFORE the run) 4.3: Kept falls from 178589 to about 112793 (unique events shrink from 190,000 to 120000). Run time about the same (+-15%) since the same number of lines is read. Shuffle volume about the same (+-5%) since every valid line still goes to the de-dup stage.
+OBSERVED: kept 112906 | R8_duplicate 75327 (was 9385) | time 2.843±0.061s (was 2.999±0.119s) | shuffle 16541 KB (was 16518 KB)
+
+>>>>>> SCREENSHOT NOW: 4.3 - prediction line and observed line <<<<<<
+
+===== 4.4 SCHEMA DRIFT (speed km/h -> m/s, optionally a new field 'lane') =====
+
+[A: unit change only] kept 44653 of 50000 | rules {'OK': 44180, 'R5_out_of_range': 996, 'R3_missing_speed': 1003, 'R7_normalise_segment': 473, 'R6_bad_time': 486, 'R1_schema': 513, 'R8_duplicate': 2349}
+  mean speed 13.895234362752783 (baseline 50.0) | segments with average < 20 'congested': 20/20 (baseline 0/20)
+  DEFENCE 1 header check: ok
+  DEFENCE 2 distribution check: z-score of batch mean vs baseline = -329.9 -> ALERT (|z|>4)
+
+[B: unit change + new field] kept 0 of 50000 | rules {'R1_schema': 50000}
+  mean speed None (baseline 50.0) | segments with average < 20 'congested': 0/0 (baseline 0/20)
+  DEFENCE 1 header check: SCHEMA DRIFT - header is sensor_id,segment,speed,event_time,lane
+  DEFENCE 2 distribution check: z-score of batch mean vs baseline = None -> ok
+
+>>>>>> SCREENSHOT NOW: 4.4 - both drift blocks <<<<<<

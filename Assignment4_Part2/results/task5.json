@@ -1,0 +1,174 @@
+{
+ "env": {
+  "python": "3.14.4",
+  "os": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "cpus": 8,
+  "ram_GB_visible": 8.7,
+  "numpy": "2.5.5",
+  "pyarrow": "26.0.1",
+  "cryptography": "50.0.2"
+ },
+ "build": {
+  "csv_s": 0.898295454999996,
+  "parquet_s": 0.3778180169999956,
+  "sqlite_load_s": 6.256480328999999,
+  "idx_sd_s": 3.1729493779999984,
+  "idx_day_s": 4.2789353120000015
+ },
+ "sizes": {
+  "csv": 104388262,
+  "parquet": 27816829,
+  "sqlite_with_idx_sd": 197730304,
+  "sqlite_with_both_idx": 298844160
+ },
+ "queries": [
+  {
+   "store": "CSV",
+   "query": "Q1",
+   "result": 352,
+   "bytes_scanned": 104388262,
+   "note": "full file scanned",
+   "cold_s": 0.20544277300000147,
+   "warm_mean_s": 0.1314533386666644,
+   "warm_sd_s": 0.006442751810541219
+  },
+  {
+   "store": "Parquet",
+   "query": "Q1",
+   "result": 352,
+   "bytes_scanned": 2781791,
+   "note": "2/20 row groups read",
+   "cold_s": 0.00759002200000225,
+   "warm_mean_s": 0.007525436666668384,
+   "warm_sd_s": 0.0004972875674162776
+  },
+  {
+   "store": "SQLite+idx_sd",
+   "query": "Q1",
+   "result": 352,
+   "bytes_scanned": 13919,
+   "note": "SEARCH events USING INDEX idx_sd (sensor_id>? AND sensor_id<?)",
+   "cold_s": 0.15086779399999983,
+   "warm_mean_s": 0.14515540399999813,
+   "warm_sd_s": 0.009662839437253545
+  },
+  {
+   "store": "CSV",
+   "query": "Q2",
+   "result": 2249.49,
+   "bytes_scanned": 104388262,
+   "note": "full file scanned (text cannot skip columns)",
+   "cold_s": 0.15507866000000092,
+   "warm_mean_s": 0.11096565100000078,
+   "warm_sd_s": 0.010433550466389904
+  },
+  {
+   "store": "Parquet",
+   "query": "Q2",
+   "result": 2249.49,
+   "bytes_scanned": 5587372,
+   "note": "11/20 row groups read",
+   "cold_s": 0.034601202000004605,
+   "warm_mean_s": 0.03022377033333612,
+   "warm_sd_s": 0.0015464824602889045
+  },
+  {
+   "store": "SQLite(no cover)",
+   "query": "Q2",
+   "result": 2249.49,
+   "bytes_scanned": 133820416,
+   "note": "SCAN events | USE TEMP B-TREE FOR GROUP BY",
+   "cold_s": 1.2453970180000056,
+   "warm_mean_s": 1.2192077633333345,
+   "warm_sd_s": 0.17420733617746775
+  },
+  {
+   "store": "SQLite+idx_day",
+   "query": "Q2",
+   "result": 2249.49,
+   "bytes_scanned": 50550193,
+   "note": "SEARCH events USING COVERING INDEX idx_day (day>? AND day<?) | USE TEMP B-TREE FOR GROUP BY",
+   "cold_s": 0.8604993189999988,
+   "warm_mean_s": 0.8355083683333362,
+   "warm_sd_s": 0.004444241977977697
+  },
+  {
+   "store": "CSV",
+   "query": "Q2b",
+   "result": 44.99,
+   "bytes_scanned": 104388262,
+   "note": "full file scanned (text cannot skip columns)",
+   "cold_s": 0.10193736899999806,
+   "warm_mean_s": 0.08509054900000497,
+   "warm_sd_s": 0.004345780363269976
+  },
+  {
+   "store": "Parquet",
+   "query": "Q2b",
+   "result": 44.99,
+   "bytes_scanned": 3504988,
+   "note": "11/20 row groups read",
+   "cold_s": 0.03502454499999885,
+   "warm_mean_s": 0.020743681333338298,
+   "warm_sd_s": 0.0005862704120136546
+  },
+  {
+   "store": "SQLite+idx_day",
+   "query": "Q2b",
+   "result": 44.99,
+   "bytes_scanned": 50550193,
+   "note": "SEARCH events USING COVERING INDEX idx_day (day>? AND day<?)",
+   "cold_s": 0.34496576099999743,
+   "warm_mean_s": 0.3436696570000019,
+   "warm_sd_s": 0.004351976884520922
+  },
+  {
+   "store": "CSV",
+   "query": "Q1b",
+   "result": 36209,
+   "bytes_scanned": 104388262,
+   "note": "full file scanned",
+   "cold_s": 0.144631552000007,
+   "warm_mean_s": 0.1289262259999949,
+   "warm_sd_s": 0.0038344921401095885
+  },
+  {
+   "store": "Parquet",
+   "query": "Q1b",
+   "result": 36209,
+   "bytes_scanned": 2781791,
+   "note": "2/20 row groups read",
+   "cold_s": 0.00835135900000239,
+   "warm_mean_s": 0.008517777999998088,
+   "warm_sd_s": 0.0006895125913332691
+  },
+  {
+   "store": "SQLite+idx_sd",
+   "query": "Q1b",
+   "result": 36209,
+   "bytes_scanned": 1701347,
+   "note": "SEARCH events USING INDEX idx_day (day=?)",
+   "cold_s": 0.6679193740000073,
+   "warm_mean_s": 0.6595795013333307,
+   "warm_sd_s": 0.0025291666303634054
+  }
+ ],
+ "q3_events_per_s": {
+  "csv": [
+   564643.9006612117,
+   662567.9067504924,
+   637070.8116056389
+  ],
+  "parquet": [
+   2674179.470816043,
+   2604811.086074642,
+   2715324.853590491
+  ],
+  "sqlite": [
+   28997.922980269504,
+   27374.411670034173,
+   21988.533714964327
+  ]
+ },
+ "parquet_small_files": 150
+}

@@ -1,0 +1,83 @@
+{
+ "env": {
+  "python": "3.14.4",
+  "os": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "cpus": 8,
+  "ram_GB_visible": 8.7,
+  "numpy": "2.5.5",
+  "pyarrow": "26.0.1",
+  "cryptography": "50.0.2"
+ },
+ "base": {
+  "header": "sensor_id,segment,speed,event_time",
+  "read": 200000,
+  "kept": 178589,
+  "quarantined": 21411,
+  "rules": {
+   "OK": 176686,
+   "R5_out_of_range": 4036,
+   "R6_bad_time": 2036,
+   "R3_missing_speed": 3970,
+   "R1_schema": 1984,
+   "R7_normalise_segment": 1903,
+   "R8_duplicate": 9385
+  },
+  "shuffle_bytes": 16914552,
+  "time": 3.096497000999989,
+  "mean": 49.971632631349074,
+  "sd": 23.107868606425082,
+  "segs_below_20": 0,
+  "nseg": 20,
+  "time_runs": [
+   3.035345856999811,
+   2.866567989000032,
+   3.096497000999989
+  ]
+ },
+ "dup40": {
+  "kept": 112906,
+  "rules": {
+   "OK": 111712,
+   "R3_missing_speed": 4022,
+   "R6_bad_time": 1928,
+   "R7_normalise_segment": 1194,
+   "R5_out_of_range": 3918,
+   "R1_schema": 1899,
+   "R8_duplicate": 75327
+  },
+  "time_runs": [
+   2.8418180049998227,
+   2.9041110670000307,
+   2.78210445600007
+  ],
+  "shuffle_bytes": 16937668
+ },
+ "drift": {
+  "A: unit change only": {
+   "kept": 44653,
+   "mean": 13.895234362752783,
+   "below20": 20,
+   "hdr_ok": true,
+   "z": -329.904777160981,
+   "rules": {
+    "OK": 44180,
+    "R5_out_of_range": 996,
+    "R3_missing_speed": 1003,
+    "R7_normalise_segment": 473,
+    "R6_bad_time": 486,
+    "R1_schema": 513,
+    "R8_duplicate": 2349
+   }
+  },
+  "B: unit change + new field": {
+   "kept": 0,
+   "mean": null,
+   "below20": 0,
+   "hdr_ok": false,
+   "z": null,
+   "rules": {
+    "R1_schema": 50000
+   }
+  }
+ }
+}

@@ -1,0 +1,39 @@
+
+===== TASK 5 - ENVIRONMENT =====
+ENV: {'python': '3.14.4', 'os': 'Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43', 'cpus': 8, 'ram_GB_visible': 8.7, 'numpy': '2.5.5', 'pyarrow': '26.0.1', 'cryptography': '50.0.2'}
+events: 5000000 | build seconds: {'csv_s': 0.9, 'parquet_s': 0.4, 'sqlite_load_s': 6.3, 'idx_sd_s': 3.2}
+sizes MB: {'csv': 104.4, 'parquet': 27.8, 'sqlite_with_idx_sd': 197.7}
+PREDICTION (recorded 12:41:45, BEFORE the run) 5-base: Q1: CSV slowest (reads whole 5M-row file); Parquet reads only the 2-3 row groups of that day; SQLite index seek fastest (milliseconds). Q2: Parquet fastest (3 of 5 columns, ~half the row groups); CSV slow; SQLite slower than Parquet (row store, scans ~half the table or covering index). Q3: SQLite fast per batch; CSV append fast; Parquet creates one small file per batch (many files).
+
+===== Q1 / Q2 (cold = first run; warm = mean of next 3) =====
+CSV           Q1    result=352          bytes=104388262   cold 0.205s | warm 0.131±0.006s | full file scanned
+Parquet       Q1    result=352          bytes=2781791     cold 0.008s | warm 0.008±0.000s | 2/20 row groups read
+SQLite+idx_sd Q1    result=352          bytes=13919       cold 0.151s | warm 0.145±0.010s | SEARCH events USING INDEX idx_sd (sensor_id>? AND sensor_id<?)
+CSV           Q2    result=2249.49      bytes=104388262   cold 0.155s | warm 0.111±0.010s | full file scanned (text cannot skip columns)
+Parquet       Q2    result=2249.49      bytes=5587372     cold 0.035s | warm 0.030±0.002s | 11/20 row groups read
+SQLite(no cover)Q2    result=2249.49      bytes=133820416   cold 1.245s | warm 1.219±0.174s | SCAN events | USE TEMP B-TREE FOR GROUP BY
+
+TUNING: SQLite Q2 plan was a table scan; adding covering index idx_day(day,segment,speed)
+ index build 4.3 s; db size MB 298.8
+SQLite+idx_dayQ2    result=2249.49      bytes=50550193    cold 0.860s | warm 0.836±0.004s | SEARCH events USING COVERING INDEX idx_day (day>? AND day<?) | USE TEMP B-TREE FOR GROUP BY
+
+>>>>>> SCREENSHOT NOW: Q1/Q2 block, sizes and tuning line <<<<<<
+PREDICTION (recorded 12:41:59, BEFORE the run) 5-mod: Q2b (only speed column): CSV unchanged (~same time/bytes); Parquet bytes drop to about 2/3 of Q2 and time falls; SQLite covering index unchanged. Q1b (100 sensors instead of 1): CSV unchanged; Parquet unchanged bytes (same row groups), slightly slower filter; SQLite rows x100 so time grows about 100x vs Q1 and may approach a scan.
+
+===== MODIFIED QUERIES =====
+CSV           Q2b   result=44.99        bytes=104388262   cold 0.102s | warm 0.085±0.004s | full file scanned (text cannot skip columns)
+Parquet       Q2b   result=44.99        bytes=3504988     cold 0.035s | warm 0.021±0.001s | 11/20 row groups read
+SQLite+idx_dayQ2b   result=44.99        bytes=50550193    cold 0.345s | warm 0.344±0.004s | SEARCH events USING COVERING INDEX idx_day (day>? AND day<?)
+CSV           Q1b   result=36209        bytes=104388262   cold 0.145s | warm 0.129±0.004s | full file scanned
+Parquet       Q1b   result=36209        bytes=2781791     cold 0.008s | warm 0.009±0.001s | 2/20 row groups read
+SQLite+idx_sd Q1b   result=36209        bytes=1701347     cold 0.668s | warm 0.660±0.003s | SEARCH events USING INDEX idx_day (day=?)
+
+>>>>>> SCREENSHOT NOW: Modified query block <<<<<<
+
+===== Q3 WRITE LOAD: 3 runs x 50 batches x 1000 events, durable (fsync / commit per batch) =====
+Q3 csv         621,428 ± 50,802 events/s
+Q3 parquet   2,664,772 ± 55,854 events/s
+Q3 sqlite       26,120 ± 3,669 events/s
+parquet small files created: 150 | total 2.11 MB for 150,000 events
+
+>>>>>> SCREENSHOT NOW: Q3 block <<<<<<

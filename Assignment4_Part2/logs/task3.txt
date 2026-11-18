@@ -1,0 +1,68 @@
+
+===== TASK 3 - ENVIRONMENT =====
+ENV: {'python': '3.14.4', 'os': 'Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43', 'cpus': 8, 'ram_GB_visible': 8.7, 'numpy': '2.5.5', 'pyarrow': '26.0.1', 'cryptography': '50.0.2'}
+synthetic beneficiaries: 2000 | auxiliary public records: 1200
+
+===== STAGE A - ROLES + AUDIT =====
+
+fraud_analyst (analyst01) asks v_analyst:
+ columns seen: ['Name', 'ID_Number', 'PIN_Code', 'Date_of_Birth', 'Gender', 'Scheme', 'Amount']
+ first 2 rows: [('Kavin Raj 0', 'B100000', '600001', '1974-09-04', 'M', 'PMAY', 11144), ('Lata Raj 1', 'B100001', '600022', '1998-12-05', 'M', 'NSAP', 29651)]
+ audit entry: {'i': 0, 'user': 'analyst01', 'role': 'fraud_analyst', 'action': 'SELECT FROM v_analyst', 'rows': 2000} hash ebf03b5983ad...
+
+researcher (res01) asks v_researcher:
+ columns seen: ['PIN_Code', 'Date_of_Birth', 'Gender', 'Scheme', 'Amount']
+ first 2 rows: [('600001', '1974-09-04', 'M', 'PMAY', 11144), ('600022', '1998-12-05', 'M', 'NSAP', 29651)]
+ audit entry: {'i': 1, 'user': 'res01', 'role': 'researcher', 'action': 'SELECT FROM v_researcher', 'rows': 2000} hash 3969d3a23507...
+
+researcher (res01) asks v_analyst:
+ columns seen: ['Name', 'ID_Number', 'PIN_Code', 'Date_of_Birth', 'Gender', 'Scheme', 'Amount']
+ first 2 rows: ACCESS DENIED
+ audit entry: {'i': 2, 'user': 'res01', 'role': 'researcher', 'action': 'DENIED SELECT FROM v_analyst', 'rows': 0} hash d4fc68997d0c...
+
+audit chain verifies: True
+
+>>>>>> SCREENSHOT NOW: Stage A - role outputs and audit entries <<<<<<
+
+===== STAGE B - LINKAGE ATTACK (release = drop Name and ID_Number) =====
+PREDICTION (recorded 09:16:05, BEFORE the run) 3B: 2000 released records have a unique (PIN, DOB, Gender); auxiliary covers 60% of people, so I expect about 1200 re-identifications.
+ACTUAL re-identified: 1200 (predicted 1200); correct links 1200; sample: [('Gokul Nair 261', 'MGNREGA', 5419), ('Kavin Shah 823', 'PMJAY', 12616), ('Esha Shah 1427', 'PMJAY', 35926)]
+
+>>>>>> SCREENSHOT NOW: Stage B - prediction line and attack result <<<<<<
+
+===== STAGE C - GENERALISATION LATTICE (target k >= 5, assumed) =====
+PIN digits | DOB level | k | records still re-identifiable | utility loss % (avg-amount by PIN, by birth year)
+         6 |     exact |   1 |   1200 |  0.00 (0.00, 0.00)
+         6 |     month |   1 |   1153 |  0.00 (0.00, 0.00)
+         6 |      year |   1 |    663 |  0.00 (0.00, 0.00)
+         6 |        5y |   1 |     60 |  3.19 (0.00, 6.39)
+         6 |       10y |   1 |      7 |  3.29 (0.00, 6.57)
+         5 |     exact |   1 |   1179 |  1.79 (3.58, 0.00)
+         5 |     month |   1 |    734 |  1.79 (3.58, 0.00)
+         5 |      year |   1 |     30 |  1.79 (3.58, 0.00)
+         5 |        5y |   1 |      2 |  4.98 (3.58, 6.39)
+         5 |       10y |   2 |      0 |  5.07 (3.58, 6.57)
+         4 |     exact |   1 |   1136 |  1.83 (3.66, 0.00)
+         4 |     month |   1 |    253 |  1.83 (3.66, 0.00)
+         4 |      year |   8 |      0 |  1.83 (3.66, 0.00)
+         4 |        5y |  69 |      0 |  5.02 (3.66, 6.39)
+         4 |       10y |  69 |      0 |  5.12 (3.66, 6.57)
+         3 |     exact |   1 |   1136 |  1.83 (3.66, 0.00)
+         3 |     month |   1 |    253 |  1.83 (3.66, 0.00)
+         3 |      year |   8 |      0 |  1.83 (3.66, 0.00)
+         3 |        5y |  69 |      0 |  5.02 (3.66, 6.39)
+         3 |       10y |  69 |      0 |  5.12 (3.66, 6.57)
+CHOSEN (smallest utility loss with k>=5): {'pin_digits': 4, 'dob': 'year', 'k': 8, 'risk': 0, 'e_pin': 3.6594243332022796, 'e_year': 0.0, 'loss': 1.8297121666011398}
+
+>>>>>> SCREENSHOT NOW: Stage C - the lattice table and CHOSEN line <<<<<<
+
+===== STAGE D - ENCRYPTION OVERHEAD + INTEGRITY =====
+pipeline on 200000 records (avg-by-scheme input): plain 0.019±0.001s | AES-256-GCM encrypted Amount 0.346±0.019s | overhead x17.8 | same result: True
+one-time encryption of 200000 fields: 0.41s | stored size per field: 33 bytes vs 5 plain
+
+untouched file: {'bad_record_macs': [], 'count_ok': True, 'file_sha_ok': True}
+ALTER record 100 Amount by +1 -> {'bad_record_macs': [100], 'count_ok': True, 'file_sha_ok': False}
+DELETE record 500 -> {'bad_record_macs': [], 'count_ok': False, 'file_sha_ok': False} (record MACs all valid; only count/file hash notice)
+EDIT audit entry 1 -> hash chain breaks at entry: 1
+
+>>>>>> SCREENSHOT NOW: Stage D - overhead line and the three tamper results <<<<<<

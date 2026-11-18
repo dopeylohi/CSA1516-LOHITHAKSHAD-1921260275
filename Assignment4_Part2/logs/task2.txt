@@ -1,0 +1,49 @@
+
+===== TASK 2 - ENVIRONMENT =====
+ENV: {'python': '3.14.4', 'os': 'Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.43', 'cpus': 8, 'ram_GB_visible': 8.7, 'numpy': '2.5.5', 'pyarrow': '26.0.1', 'cryptography': '50.0.2'}
+
+===== 2.1 NORMAL CASE (ordered, clean, 5 windows x 20 events; watermark 10 s, window 60 s) =====
+window_start | BATCH (avg,n) | STREAM (avg,n) | same
+           0 | (53.11, 20) | (53.11, 20) | True
+          60 | (50.075, 20) | (50.075, 20) | True
+         120 | (55.41, 20) | (55.41, 20) | True
+         180 | (47.435, 20) | (47.435, 20) | True
+         240 | (49.475, 20) | (49.475, 20) | True
+StreamResult = BatchResult
+
+>>>>>> SCREENSHOT NOW: 2.1 - the side-by-side table <<<<<<
+
+===== 2.2 BREAK THE STREAM (late + out-of-order + duplicate events) =====
+BATCH : {0: (53.11, 20), 60: (50.075, 20), 120: (55.41, 20), 180: (47.435, 20), 240: (49.475, 20)}
+STREAM: {0: (52.7947, 19), 60: (50.075, 20), 120: (55.41, 20), 180: (47.435, 20), 240: (49.475, 20)}
+StreamResult != BatchResult | windows that differ: [0]
+FIRST responsible event: id=e3 event_time=9s arrived when max event_time was 96s -> 87s late; watermark delay is 10 s, its window [0,60) was already closed (watermark=86s). Setting: WATERMARK.
+duplicates removed by de-dup (window-scoped state): 1 | late events dropped: 1
+FIX: watermark 37 s -> StreamResult = BatchResult: True
+COST: mean result delay 12.0s -> 39.0s (event-time clock); peak state items 26 -> 35
+Second setting: de-dup OFF (watermark 37 ) -> windows differ: [120] => duplicates inflate counts; DE-DUP setting responsible
+
+>>>>>> SCREENSHOT NOW: 2.2 - mismatch line, responsible event, fix and cost <<<<<<
+
+===== 2.3 ENGINEERING COMPARISON (36,000 events, 3% late 5-100 s, 2% duplicates) =====
+BATCH : throughput 2,326,786 ev/s (0.016±0.001s) | result delay 17969s after data ends (needs whole file) | memory peak 2.7 MB (holds all 36759 events) | correct by definition
+STREAM wm=  2s: throughput 744,518 ev/s (0.049±0.008s) | delay 2.0s | peak state 64 items, mem 0.13 MB | wrong windows 437/600 | late dropped 759 | dups removed 732
+STREAM wm= 10s: throughput 765,753 ev/s (0.048±0.001s) | delay 10.0s | peak state 72 items, mem 0.06 MB | wrong windows 401/600 | late dropped 654 | dups removed 746
+STREAM wm=130s: throughput 718,448 ev/s (0.051±0.001s) | delay 130.0s | peak state 194 items, mem 0.06 MB | wrong windows 0/600 | late dropped 0 | dups removed 759
+RESTART at event 18379: with checkpoint -> identical to uninterrupted run: True | stateless restart -> 4 windows differ | batch rerun identical: True
+
+>>>>>> SCREENSHOT NOW: 2.3 - BATCH/STREAM lines and RESTART line <<<<<<
+
+===== 2.4 TWO-SECOND REQUIREMENT: watermark sweep on the same data =====
+watermark_s | mean result delay s | wrong windows | late events dropped (% of events) | peak state
+          0 |                 0.0 |           444 |    798 (2.17%) | 61
+          1 |                 1.0 |           442 |    778 (2.12%) | 63
+          2 |                 2.0 |           437 |    759 (2.06%) | 64
+          5 |                 5.0 |           421 |    706 (1.92%) | 67
+         10 |                10.0 |           401 |    654 (1.78%) | 72
+         30 |                30.0 |           315 |    428 (1.16%) | 92
+         60 |                60.0 |           128 |    144 (0.39%) | 122
+        100 |               100.0 |             0 |      0 (0.00%) | 163
+        130 |               130.0 |             0 |      0 (0.00%) | 194
+
+>>>>>> SCREENSHOT NOW: 2.4 - the sweep table <<<<<<
