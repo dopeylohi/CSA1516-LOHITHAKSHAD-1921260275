@@ -1,0 +1,5 @@
+{"type":"record","name":"GateEvent","namespace":"transit","fields":[
+ {"name":"timestamp","type":"string"},{"name":"station_id","type":"string"},
+ {"name":"gate_id","type":"string"},{"name":"card_id","type":"string"},
+ {"name":"tap_type","type":"string"},{"name":"fare","type":"double"},
+ {"name":"device_firmware","type":["null","string"],"default":null}]}

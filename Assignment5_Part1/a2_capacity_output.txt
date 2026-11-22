@@ -1,0 +1,7 @@
+A2.1 capacity planning (assumed 1 TB = 1024 GB)
+1. blocks/day = 2097152 MB / 128 MB = 16384
+2. raw/day after replication = 2 TB x 3 = 6 TB; 90 days = 6 x 90 = 540 TB (logical 180 TB)
+3. usable per node = 24 x (1-0.25) = 18.0 TB; nodes = 540/18.0 = 30.00 -> 30
+4. blocks in 90 days = 16384 x 90 = 1474560; NameNode memory = 1474560 x 150 B = 221184000 B = 210.9 MiB (0.206 GiB)
+5. tiny files (assumed 100 KB each): files/day = 21,474,836; 90 days = 1,932,735,283; memory = files x (1 file object + 1 block object) x 150 B = 540 GiB
+   same data in 128 MB blocks needs 0.206 GiB, so tiny files need about 2,621x more
