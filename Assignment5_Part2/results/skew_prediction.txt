@@ -1,0 +1,3 @@
+### PREDICTION made before running the jobs - Sun Nov 22 03:48:40 UTC 2026
+skew_uniform_500mb.csv: predicted records per reducer [1444049, 1441238, 1441351, 1442218] -> slowest expected: reducer 0 (25.0% of all records)
+skew_hot_500mb.csv: predicted records per reducer [1610146, 1441574, 1273538, 1444493] -> slowest expected: reducer 0 (27.9% of all records)

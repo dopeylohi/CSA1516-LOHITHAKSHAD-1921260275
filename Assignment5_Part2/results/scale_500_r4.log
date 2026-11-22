@@ -1,0 +1,89 @@
+packageJobJar: [/tmp/hadoop-unjar14162601047625988331/] [] /tmp/streamjob3996986621357851316.jar tmpDir=null
+2026-11-22 03:41:11,483 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at localhost/127.0.0.1:8032
+2026-11-22 03:41:11,622 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at localhost/127.0.0.1:8032
+2026-11-22 03:41:11,825 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/lohi/.staging/job_1795317807281_0014
+2026-11-22 03:41:12,131 INFO mapred.FileInputFormat: Total input files to process : 1
+2026-11-22 03:41:12,187 INFO mapreduce.JobSubmitter: number of splits:4
+2026-11-22 03:41:12,386 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1795317807281_0014
+2026-11-22 03:41:12,386 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2026-11-22 03:41:12,631 INFO conf.Configuration: resource-types.xml not found
+2026-11-22 03:41:12,634 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2026-11-22 03:41:12,728 INFO impl.YarnClientImpl: Submitted application application_1795317807281_0014
+2026-11-22 03:41:12,773 INFO mapreduce.Job: The url to track the job: http://lol.localdomain:8088/proxy/application_1795317807281_0014/
+2026-11-22 03:41:12,775 INFO mapreduce.Job: Running job: job_1795317807281_0014
+2026-11-22 03:41:19,866 INFO mapreduce.Job: Job job_1795317807281_0014 running in uber mode : false
+2026-11-22 03:41:19,867 INFO mapreduce.Job:  map 0% reduce 0%
+2026-11-22 03:41:35,130 INFO mapreduce.Job:  map 50% reduce 0%
+2026-11-22 03:41:36,138 INFO mapreduce.Job:  map 100% reduce 0%
+2026-11-22 03:41:41,196 INFO mapreduce.Job:  map 100% reduce 25%
+2026-11-22 03:41:42,204 INFO mapreduce.Job:  map 100% reduce 50%
+2026-11-22 03:41:43,212 INFO mapreduce.Job:  map 100% reduce 75%
+2026-11-22 03:41:44,218 INFO mapreduce.Job:  map 100% reduce 100%
+2026-11-22 03:41:44,228 INFO mapreduce.Job: Job job_1795317807281_0014 completed successfully
+2026-11-22 03:41:44,312 INFO mapreduce.Job: Counters: 57
+	File System Counters
+		FILE: Number of bytes read=1935476
+		FILE: Number of bytes written=6117524
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=525084270
+		HDFS: Number of bytes written=463680
+		HDFS: Number of read operations=32
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=8
+		HDFS: Number of bytes read erasure-coded=0
+	Job Counters 
+		Killed map tasks=1
+		Launched map tasks=4
+		Launched reduce tasks=4
+		Data-local map tasks=4
+		Total time spent by all maps in occupied slots (ms)=110108
+		Total time spent by all reduces in occupied slots (ms)=27952
+		Total time spent by all map tasks (ms)=55054
+		Total time spent by all reduce tasks (ms)=13976
+		Total vcore-milliseconds taken by all map tasks=55054
+		Total vcore-milliseconds taken by all reduce tasks=13976
+		Total megabyte-milliseconds taken by all map tasks=28187648
+		Total megabyte-milliseconds taken by all reduce tasks=7155712
+	Map-Reduce Framework
+		Map input records=11540000
+		Map output records=5769470
+		Map output bytes=121158870
+		Map output materialized bytes=1935548
+		Input split bytes=392
+		Combine input records=5769470
+		Combine output records=80640
+		Reduce input groups=20160
+		Reduce shuffle bytes=1935548
+		Reduce input records=80640
+		Reduce output records=20160
+		Spilled Records=161280
+		Shuffled Maps =16
+		Failed Shuffles=0
+		Merged Map outputs=16
+		GC time elapsed (ms)=366
+		CPU time spent (ms)=38550
+		Physical memory (bytes) snapshot=2267639808
+		Virtual memory (bytes) snapshot=17424003072
+		Total committed heap usage (bytes)=1614807040
+		Peak Map Physical memory (bytes)=349937664
+		Peak Map Virtual memory (bytes)=2182995968
+		Peak Reduce Physical memory (bytes)=231661568
+		Peak Reduce Virtual memory (bytes)=2175840256
+	Q1
+		ExitTapsSkipped=5770530
+		MalformedRecords=0
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=525083878
+	File Output Format Counters 
+		Bytes Written=463680
+2026-11-22 03:41:44,312 INFO streaming.StreamJob: Output directory: /transit/out/scale_500_r4
+ELAPSED_SECONDS=34

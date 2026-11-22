@@ -1,0 +1,11 @@
+<?xml version="1.0"?><configuration>
+<property><name>yarn.scheduler.capacity.root.queues</name><value>batch,adhoc</value></property>
+<property><name>yarn.scheduler.capacity.root.batch.capacity</name><value>70</value></property>
+<property><name>yarn.scheduler.capacity.root.batch.maximum-capacity</name><value>70</value></property>
+<property><name>yarn.scheduler.capacity.root.adhoc.capacity</name><value>30</value></property>
+<property><name>yarn.scheduler.capacity.root.adhoc.maximum-capacity</name><value>100</value></property>
+<property><name>yarn.scheduler.capacity.root.batch.acl_submit_applications</name><value>*</value></property>
+<property><name>yarn.scheduler.capacity.root.adhoc.acl_submit_applications</name><value>*</value></property>
+<property><name>yarn.scheduler.capacity.maximum-am-resource-percent</name><value>0.5</value></property>
+<property><name>yarn.scheduler.capacity.resource-calculator</name><value>org.apache.hadoop.yarn.util.resource.DefaultResourceCalculator</value></property>
+</configuration>
