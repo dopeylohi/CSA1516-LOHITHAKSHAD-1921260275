@@ -1,35 +1,52 @@
 ### daemons
 6081 DataNode
-7794 Jps
 6244 NodeManager
 6008 NameNode
+42153 ResourceManager
 6363 JobHistoryServer
-6155 ResourceManager
+42973 Jps
 ### create directory structure
-Found 4 items
-drwxr-xr-x   - lohi supergroup          0 2026-11-22 03:34 /transit/out
-drwxr-xr-x   - lohi supergroup          0 2026-11-22 03:34 /transit/raw
-drwxr-xr-x   - lohi supergroup          0 2026-11-22 03:34 /transit/ref
-drwxr-xr-x   - lohi supergroup          0 2026-11-22 03:34 /transit/test
+Found 5 items
+drwxr-xr-x   - lohi supergroup          0 2026-11-22 03:55 /transit/out
+drwxr-xr-x   - lohi supergroup          0 2026-11-22 03:50 /transit/raw
+drwxr-xr-x   - lohi supergroup          0 2026-11-22 03:35 /transit/ref
+drwxr-xr-x   - lohi supergroup          0 2026-11-22 03:36 /transit/test
+drwxr-xr-x   - lohi supergroup          0 2026-11-22 03:37 /transit/test_out
 ### upload generated log (500 MB)
 ### list files
-Found 1 items
--rw-r--r--   1 lohi supergroup    500.7 M 2026-11-22 03:34 /transit/raw/gate_log_500mb.csv
+Found 9 items
+-rw-r--r--   1 lohi supergroup   1000.6 M 2026-11-22 03:41 /transit/raw/ds_1000mb.csv
+-rw-r--r--   1 lohi supergroup    100.7 M 2026-11-22 03:38 /transit/raw/ds_100mb.csv
+-rw-r--r--   1 lohi supergroup      2.0 G 2026-11-22 03:44 /transit/raw/ds_2000mb.csv
+-rw-r--r--   1 lohi supergroup    500.7 M 2026-11-22 03:40 /transit/raw/ds_500mb.csv
+-rw-r--r--   1 lohi supergroup    500.7 M 2026-11-22 04:08 /transit/raw/gate_log_500mb.csv
+-rw-r--r--   1 lohi supergroup    500.7 M 2026-11-22 03:50 /transit/raw/poison_500mb.csv
+-rw-r--r--   1 lohi supergroup    500.7 M 2026-11-22 03:49 /transit/raw/skew_hot_500mb.csv
+-rw-r--r--   1 lohi supergroup    500.7 M 2026-11-22 03:48 /transit/raw/skew_uniform_500mb.csv
+-rw-r--r--   1 lohi supergroup     20.8 M 2026-11-22 03:37 /transit/raw/topn_20mb.csv
 ### space usage
-500.7 M  500.7 M  /transit/raw/gate_log_500mb.csv
-Filesystem                 Size     Used  Available  Use%
-hdfs://localhost:9000  1006.9 G  505.2 M    942.8 G    0%
+1000.6 M  1000.6 M  /transit/raw/ds_1000mb.csv
+100.7 M   100.7 M   /transit/raw/ds_100mb.csv
+2.0 G     2.0 G     /transit/raw/ds_2000mb.csv
+500.7 M   500.7 M   /transit/raw/ds_500mb.csv
+500.7 M   500.7 M   /transit/raw/gate_log_500mb.csv
+500.7 M   500.7 M   /transit/raw/poison_500mb.csv
+500.7 M   500.7 M   /transit/raw/skew_hot_500mb.csv
+500.7 M   500.7 M   /transit/raw/skew_uniform_500mb.csv
+20.8 M    20.8 M    /transit/raw/topn_20mb.csv
+Filesystem                 Size   Used  Available  Use%
+hdfs://localhost:9000  1006.9 G  6.1 G    936.7 G    1%
 ### file attributes
 replication=1 blocksize=134217728 bytes=525071590
 ### fsck, replication 1
 Connecting to namenode via http://localhost:9870/fsck?ugi=lohi&files=1&blocks=1&locations=1&path=%2Ftransit%2Fraw%2Fgate_log_500mb.csv
-FSCK started by lohi (auth:SIMPLE) from /127.0.0.1 for path /transit/raw/gate_log_500mb.csv at Sun Nov 22 03:35:03 UTC 2026
+FSCK started by lohi (auth:SIMPLE) from /127.0.0.1 for path /transit/raw/gate_log_500mb.csv at Sun Nov 22 04:08:41 UTC 2026
 
 /transit/raw/gate_log_500mb.csv 525071590 bytes, replicated: replication=1, 4 block(s):  OK
-0. BP-729164294-127.0.1.1-1795317792876:blk_1073741839_1015 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DISK]]
-1. BP-729164294-127.0.1.1-1795317792876:blk_1073741840_1016 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DISK]]
-2. BP-729164294-127.0.1.1-1795317792876:blk_1073741841_1017 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DISK]]
-3. BP-729164294-127.0.1.1-1795317792876:blk_1073741842_1018 len=122418406 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DISK]]
+0. BP-729164294-127.0.1.1-1795317792876:blk_1073742264_1440 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DISK]]
+1. BP-729164294-127.0.1.1-1795317792876:blk_1073742265_1441 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DISK]]
+2. BP-729164294-127.0.1.1-1795317792876:blk_1073742266_1442 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DISK]]
+3. BP-729164294-127.0.1.1-1795317792876:blk_1073742267_1443 len=122418406 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DISK]]
 
 
 Status: HEALTHY
@@ -66,7 +83,7 @@ Erasure Coded Block Groups:
  Corrupt block groups:		0
  Missing internal blocks:	0
  Blocks queued for replication:	0
-FSCK ended at Sun Nov 22 03:35:03 UTC 2026 in 24 milliseconds
+FSCK ended at Sun Nov 22 04:08:41 UTC 2026 in 5 milliseconds
 
 
 The filesystem under path '/transit/raw/gate_log_500mb.csv' is HEALTHY
@@ -74,16 +91,16 @@ The filesystem under path '/transit/raw/gate_log_500mb.csv' is HEALTHY
 Replication 2 set: /transit/raw/gate_log_500mb.csv
 replication=2
 Connecting to namenode via http://localhost:9870/fsck?ugi=lohi&files=1&blocks=1&locations=1&path=%2Ftransit%2Fraw%2Fgate_log_500mb.csv
-FSCK started by lohi (auth:SIMPLE) from /127.0.0.1 for path /transit/raw/gate_log_500mb.csv at Sun Nov 22 03:35:09 UTC 2026
+FSCK started by lohi (auth:SIMPLE) from /127.0.0.1 for path /transit/raw/gate_log_500mb.csv at Sun Nov 22 04:08:46 UTC 2026
 
-/transit/raw/gate_log_500mb.csv 525071590 bytes, replicated: replication=2, 4 block(s):  Under replicated BP-729164294-127.0.1.1-1795317792876:blk_1073741839_1015. Target Replicas is 2 but found 1 live replica(s), 0 decommissioned replica(s), 0 decommissioning replica(s).
- Under replicated BP-729164294-127.0.1.1-1795317792876:blk_1073741840_1016. Target Replicas is 2 but found 1 live replica(s), 0 decommissioned replica(s), 0 decommissioning replica(s).
- Under replicated BP-729164294-127.0.1.1-1795317792876:blk_1073741841_1017. Target Replicas is 2 but found 1 live replica(s), 0 decommissioned replica(s), 0 decommissioning replica(s).
- Under replicated BP-729164294-127.0.1.1-1795317792876:blk_1073741842_1018. Target Replicas is 2 but found 1 live replica(s), 0 decommissioned replica(s), 0 decommissioning replica(s).
-0. BP-729164294-127.0.1.1-1795317792876:blk_1073741839_1015 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DISK]]
-1. BP-729164294-127.0.1.1-1795317792876:blk_1073741840_1016 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DISK]]
-2. BP-729164294-127.0.1.1-1795317792876:blk_1073741841_1017 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DISK]]
-3. BP-729164294-127.0.1.1-1795317792876:blk_1073741842_1018 len=122418406 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DISK]]
+/transit/raw/gate_log_500mb.csv 525071590 bytes, replicated: replication=2, 4 block(s):  Under replicated BP-729164294-127.0.1.1-1795317792876:blk_1073742264_1440. Target Replicas is 2 but found 1 live replica(s), 0 decommissioned replica(s), 0 decommissioning replica(s).
+ Under replicated BP-729164294-127.0.1.1-1795317792876:blk_1073742265_1441. Target Replicas is 2 but found 1 live replica(s), 0 decommissioned replica(s), 0 decommissioning replica(s).
+ Under replicated BP-729164294-127.0.1.1-1795317792876:blk_1073742266_1442. Target Replicas is 2 but found 1 live replica(s), 0 decommissioned replica(s), 0 decommissioning replica(s).
+ Under replicated BP-729164294-127.0.1.1-1795317792876:blk_1073742267_1443. Target Replicas is 2 but found 1 live replica(s), 0 decommissioned replica(s), 0 decommissioning replica(s).
+0. BP-729164294-127.0.1.1-1795317792876:blk_1073742264_1440 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DISK]]
+1. BP-729164294-127.0.1.1-1795317792876:blk_1073742265_1441 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DISK]]
+2. BP-729164294-127.0.1.1-1795317792876:blk_1073742266_1442 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DISK]]
+3. BP-729164294-127.0.1.1-1795317792876:blk_1073742267_1443 len=122418406 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DISK]]
 
 
 Status: HEALTHY
@@ -120,7 +137,7 @@ Erasure Coded Block Groups:
  Corrupt block groups:		0
  Missing internal blocks:	0
  Blocks queued for replication:	0
-FSCK ended at Sun Nov 22 03:35:09 UTC 2026 in 2 milliseconds
+FSCK ended at Sun Nov 22 04:08:46 UTC 2026 in 2 milliseconds
 
 
 The filesystem under path '/transit/raw/gate_log_500mb.csv' is HEALTHY

@@ -1,0 +1,29 @@
+
+=== failure mode: transient (poison record CFAIL in the first split, mapreduce.map.maxattempts=4)
+2026-11-22 04:25:50,194 INFO mapreduce.Job: Task Id : attempt_1795319776833_0024_m_000000_0, Status : FAILED
+2026-11-22 04:26:04,432 INFO mapreduce.Job: Job job_1795319776833_0024 completed successfully
+Failed map tasks=1
+Killed map tasks=1
+Launched map tasks=5
+-- from the container logs:
+FAULT INJECTED on record 2026-11-01 08:00:00,S001,G1,CFAIL,ENTRY,0 in attempt_1795319776833_0024_m_000000_0
+
+=== failure mode: permanent (poison record CFAIL in the first split, mapreduce.map.maxattempts=4)
+2026-11-22 04:26:32,127 INFO mapreduce.Job: Task Id : attempt_1795319776833_0025_m_000000_0, Status : FAILED
+2026-11-22 04:26:36,179 INFO mapreduce.Job: Task Id : attempt_1795319776833_0025_m_000000_1, Status : FAILED
+2026-11-22 04:26:40,209 INFO mapreduce.Job: Task Id : attempt_1795319776833_0025_m_000000_2, Status : FAILED
+2026-11-22 04:26:44,250 INFO mapreduce.Job: Job job_1795319776833_0025 failed with state FAILED due to: Task failed task_1795319776833_0025_m_000000
+Job failed as tasks failed. failedMaps:1 failedReduces:0 killedMaps:0 killedReduces: 0
+Failed map tasks=4
+Killed map tasks=1
+Launched map tasks=7
+-- from the container logs:
+FAULT INJECTED on record 2026-11-01 08:00:00,S001,G1,CFAIL,ENTRY,0 in attempt_1795319776833_0025_m_000000_0
+FAULT INJECTED on record 2026-11-01 08:00:00,S001,G1,CFAIL,ENTRY,0 in attempt_1795319776833_0025_m_000000_3
+FAULT INJECTED on record 2026-11-01 08:00:00,S001,G1,CFAIL,ENTRY,0 in attempt_1795319776833_0025_m_000000_2
+FAULT INJECTED on record 2026-11-01 08:00:00,S001,G1,CFAIL,ENTRY,0 in attempt_1795319776833_0025_m_000000_1
+--- transient run vs clean run (expect 1 changed line: the poison record is a valid ENTRY at S001 2026-11-01 08)
+9c9
+< S001|2026-11-01|08	286
+---
+> S001|2026-11-01|08	287

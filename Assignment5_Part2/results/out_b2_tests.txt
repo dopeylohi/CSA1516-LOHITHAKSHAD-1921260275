@@ -1,0 +1,87 @@
+
+=== TEST sample (input: sample_part1.csv sample_part2.csv)
+-- expected:
+S001|2026-11-01|08	3
+S001|2026-11-01|09	1
+S002|2026-11-01|08	2
+S003|2026-11-01|09	2
+-- actual (Hadoop):
+S001|2026-11-01|08	3
+S001|2026-11-01|09	1
+S002|2026-11-01|08	2
+S003|2026-11-01|09	2
+RESULT: PASS
+Launched map tasks=2
+Map input records=10
+Map output records=8
+Combine input records=8
+Combine output records=6
+ExitTapsSkipped=2
+MalformedRecords=0
+
+=== TEST malformed (input: malformed.csv)
+-- expected:
+S001|2026-11-01|08	1
+S002|2026-11-01|08	1
+-- actual (Hadoop):
+S001|2026-11-01|08	1
+S002|2026-11-01|08	1
+RESULT: PASS
+Launched map tasks=2
+Map input records=6
+Map output records=2
+Combine input records=2
+Combine output records=2
+ExitTapsSkipped=0
+MalformedRecords=4
+
+=== TEST exit_only (input: exit_only.csv)
+-- expected:
+-- actual (Hadoop):
+RESULT: PASS
+Launched map tasks=2
+Map input records=3
+Map output records=0
+Combine input records=0
+Combine output records=0
+ExitTapsSkipped=3
+MalformedRecords=0
+
+=== TEST empty (input: empty.csv)
+-- expected:
+-- actual (Hadoop):
+RESULT: PASS
+Launched map tasks=1
+Map input records=0
+Map output records=0
+Combine input records=0
+Combine output records=0
+ExitTapsSkipped=0
+MalformedRecords=0
+
+=== Q1 and Q2 on a 20 MB synthetic file vs an independent Python script (no Hadoop)
+Q1: Hadoop output MATCHES independent script (8640 keys)
+Q2: Hadoop top-5 MATCHES independent script
+Q2 top-5 per day (Hadoop two-job chain):
+2026-11-01	S049	719
+2026-11-01	S059	718
+2026-11-01	S083	711
+2026-11-01	S096	719
+2026-11-01	S105	712
+2026-11-02	S045	718
+2026-11-02	S065	718
+2026-11-02	S078	719
+2026-11-02	S086	721
+2026-11-02	S107	724
+2026-11-03	S016	726
+2026-11-03	S028	720
+2026-11-03	S030	711
+2026-11-03	S076	739
+2026-11-03	S109	729
+--- B1.3 data OUT: job output -> local file -> relational table
+rows loaded into table top_stations: 15
+('2026-11-01', 'S049', 719)
+('2026-11-01', 'S096', 719)
+('2026-11-01', 'S059', 718)
+('2026-11-01', 'S105', 712)
+('2026-11-01', 'S083', 711)

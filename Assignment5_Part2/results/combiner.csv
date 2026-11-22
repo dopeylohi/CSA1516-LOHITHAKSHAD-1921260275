@@ -1,0 +1,3 @@
+label,splits,map_tasks,reduce_tasks,map_in,map_out,comb_in,comb_out,shuffle_bytes,reduce_groups,reduce_in,elapsed_s
+without,4,4,1,11540000,5769470,0,0,132697834,20160,5769470,34
+with,4,4,1,11540000,5769470,5769470,80640,1935476,20160,80640,31

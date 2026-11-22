@@ -1,23 +1,23 @@
-packageJobJar: [/tmp/hadoop-unjar16854502530561756658/] [] /tmp/streamjob2500931053949846998.jar tmpDir=null
-2026-11-22 03:37:46,441 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at localhost/127.0.0.1:8032
-2026-11-22 03:37:46,572 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at localhost/127.0.0.1:8032
-2026-11-22 03:37:46,750 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/lohi/.staging/job_1795317807281_0007
-2026-11-22 03:37:47,064 INFO mapred.FileInputFormat: Total input files to process : 1
-2026-11-22 03:37:47,135 INFO mapreduce.JobSubmitter: number of splits:2
-2026-11-22 03:37:47,316 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1795317807281_0007
-2026-11-22 03:37:47,316 INFO mapreduce.JobSubmitter: Executing with tokens: []
-2026-11-22 03:37:47,476 INFO conf.Configuration: resource-types.xml not found
-2026-11-22 03:37:47,476 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
-2026-11-22 03:37:47,525 INFO impl.YarnClientImpl: Submitted application application_1795317807281_0007
-2026-11-22 03:37:47,554 INFO mapreduce.Job: The url to track the job: http://lol.localdomain:8088/proxy/application_1795317807281_0007/
-2026-11-22 03:37:47,555 INFO mapreduce.Job: Running job: job_1795317807281_0007
-2026-11-22 03:37:53,687 INFO mapreduce.Job: Job job_1795317807281_0007 running in uber mode : false
-2026-11-22 03:37:53,688 INFO mapreduce.Job:  map 0% reduce 0%
-2026-11-22 03:37:59,772 INFO mapreduce.Job:  map 100% reduce 0%
-2026-11-22 03:38:05,811 INFO mapreduce.Job:  map 100% reduce 50%
-2026-11-22 03:38:06,817 INFO mapreduce.Job:  map 100% reduce 100%
-2026-11-22 03:38:06,827 INFO mapreduce.Job: Job job_1795317807281_0007 completed successfully
-2026-11-22 03:38:06,903 INFO mapreduce.Job: Counters: 56
+packageJobJar: [/tmp/hadoop-unjar5256760043349701021/] [] /tmp/streamjob10386719341455877521.jar tmpDir=null
+2026-11-22 04:11:21,120 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at localhost/127.0.0.1:8032
+2026-11-22 04:11:21,267 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at localhost/127.0.0.1:8032
+2026-11-22 04:11:21,471 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/lohi/.staging/job_1795319776833_0006
+2026-11-22 04:11:21,774 INFO mapred.FileInputFormat: Total input files to process : 1
+2026-11-22 04:11:21,825 INFO mapreduce.JobSubmitter: number of splits:2
+2026-11-22 04:11:22,408 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1795319776833_0006
+2026-11-22 04:11:22,408 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2026-11-22 04:11:22,533 INFO conf.Configuration: resource-types.xml not found
+2026-11-22 04:11:22,533 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2026-11-22 04:11:22,580 INFO impl.YarnClientImpl: Submitted application application_1795319776833_0006
+2026-11-22 04:11:22,609 INFO mapreduce.Job: The url to track the job: http://lol.localdomain:8088/proxy/application_1795319776833_0006/
+2026-11-22 04:11:22,610 INFO mapreduce.Job: Running job: job_1795319776833_0006
+2026-11-22 04:11:28,688 INFO mapreduce.Job: Job job_1795319776833_0006 running in uber mode : false
+2026-11-22 04:11:28,689 INFO mapreduce.Job:  map 0% reduce 0%
+2026-11-22 04:11:34,783 INFO mapreduce.Job:  map 100% reduce 0%
+2026-11-22 04:11:39,827 INFO mapreduce.Job:  map 100% reduce 50%
+2026-11-22 04:11:40,833 INFO mapreduce.Job:  map 100% reduce 100%
+2026-11-22 04:11:40,843 INFO mapreduce.Job: Job job_1795319776833_0006 completed successfully
+2026-11-22 04:11:40,914 INFO mapreduce.Job: Counters: 56
 	File System Counters
 		FILE: Number of bytes read=15852
 		FILE: Number of bytes written=1154842
@@ -34,14 +34,14 @@ packageJobJar: [/tmp/hadoop-unjar16854502530561756658/] [] /tmp/streamjob2500931
 		Launched map tasks=2
 		Launched reduce tasks=2
 		Data-local map tasks=2
-		Total time spent by all maps in occupied slots (ms)=15882
-		Total time spent by all reduces in occupied slots (ms)=10260
-		Total time spent by all map tasks (ms)=7941
-		Total time spent by all reduce tasks (ms)=5130
-		Total vcore-milliseconds taken by all map tasks=7941
-		Total vcore-milliseconds taken by all reduce tasks=5130
-		Total megabyte-milliseconds taken by all map tasks=4065792
-		Total megabyte-milliseconds taken by all reduce tasks=2626560
+		Total time spent by all maps in occupied slots (ms)=15240
+		Total time spent by all reduces in occupied slots (ms)=10736
+		Total time spent by all map tasks (ms)=7620
+		Total time spent by all reduce tasks (ms)=5368
+		Total vcore-milliseconds taken by all map tasks=7620
+		Total vcore-milliseconds taken by all reduce tasks=5368
+		Total megabyte-milliseconds taken by all map tasks=3901440
+		Total megabyte-milliseconds taken by all reduce tasks=2748416
 	Map-Reduce Framework
 		Map input records=480000
 		Map output records=239656
@@ -58,15 +58,15 @@ packageJobJar: [/tmp/hadoop-unjar16854502530561756658/] [] /tmp/streamjob2500931
 		Shuffled Maps =4
 		Failed Shuffles=0
 		Merged Map outputs=4
-		GC time elapsed (ms)=75
-		CPU time spent (ms)=6160
-		Physical memory (bytes) snapshot=1046212608
-		Virtual memory (bytes) snapshot=8709595136
+		GC time elapsed (ms)=68
+		CPU time spent (ms)=6650
+		Physical memory (bytes) snapshot=1057607680
+		Virtual memory (bytes) snapshot=8708964352
 		Total committed heap usage (bytes)=807403520
-		Peak Map Physical memory (bytes)=313217024
-		Peak Map Virtual memory (bytes)=2181988352
-		Peak Reduce Physical memory (bytes)=219168768
-		Peak Reduce Virtual memory (bytes)=2176753664
+		Peak Map Physical memory (bytes)=304885760
+		Peak Map Virtual memory (bytes)=2181709824
+		Peak Reduce Physical memory (bytes)=233623552
+		Peak Reduce Virtual memory (bytes)=2174910464
 	Q1
 		ExitTapsSkipped=240344
 		MalformedRecords=0
@@ -81,4 +81,4 @@ packageJobJar: [/tmp/hadoop-unjar16854502530561756658/] [] /tmp/streamjob2500931
 		Bytes Read=21845128
 	File Output Format Counters 
 		Bytes Written=7200
-2026-11-22 03:38:06,903 INFO streaming.StreamJob: Output directory: /transit/out/q2_20mb-j1
+2026-11-22 04:11:40,914 INFO streaming.StreamJob: Output directory: /transit/out/q2_20mb-j1

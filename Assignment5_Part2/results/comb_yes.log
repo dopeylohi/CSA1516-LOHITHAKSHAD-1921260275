@@ -1,0 +1,85 @@
+packageJobJar: [/tmp/hadoop-unjar2438927149029087514/] [] /tmp/streamjob12793568152473803254.jar tmpDir=null
+2026-11-22 04:12:47,971 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at localhost/127.0.0.1:8032
+2026-11-22 04:12:48,102 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at localhost/127.0.0.1:8032
+2026-11-22 04:12:48,299 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/lohi/.staging/job_1795319776833_0009
+2026-11-22 04:12:48,577 INFO mapred.FileInputFormat: Total input files to process : 1
+2026-11-22 04:12:48,626 INFO mapreduce.JobSubmitter: number of splits:4
+2026-11-22 04:12:48,783 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1795319776833_0009
+2026-11-22 04:12:48,783 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2026-11-22 04:12:48,922 INFO conf.Configuration: resource-types.xml not found
+2026-11-22 04:12:48,922 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2026-11-22 04:12:48,971 INFO impl.YarnClientImpl: Submitted application application_1795319776833_0009
+2026-11-22 04:12:48,996 INFO mapreduce.Job: The url to track the job: http://lol.localdomain:8088/proxy/application_1795319776833_0009/
+2026-11-22 04:12:48,997 INFO mapreduce.Job: Running job: job_1795319776833_0009
+2026-11-22 04:12:55,082 INFO mapreduce.Job: Job job_1795319776833_0009 running in uber mode : false
+2026-11-22 04:12:55,083 INFO mapreduce.Job:  map 0% reduce 0%
+2026-11-22 04:13:12,366 INFO mapreduce.Job:  map 100% reduce 0%
+2026-11-22 04:13:17,403 INFO mapreduce.Job:  map 100% reduce 100%
+2026-11-22 04:13:17,413 INFO mapreduce.Job: Job job_1795319776833_0009 completed successfully
+2026-11-22 04:13:17,488 INFO mapreduce.Job: Counters: 57
+	File System Counters
+		FILE: Number of bytes read=1935458
+		FILE: Number of bytes written=5274889
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=525084294
+		HDFS: Number of bytes written=463680
+		HDFS: Number of read operations=17
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+		HDFS: Number of bytes read erasure-coded=0
+	Job Counters 
+		Killed map tasks=1
+		Launched map tasks=4
+		Launched reduce tasks=1
+		Data-local map tasks=4
+		Total time spent by all maps in occupied slots (ms)=118648
+		Total time spent by all reduces in occupied slots (ms)=5472
+		Total time spent by all map tasks (ms)=59324
+		Total time spent by all reduce tasks (ms)=2736
+		Total vcore-milliseconds taken by all map tasks=59324
+		Total vcore-milliseconds taken by all reduce tasks=2736
+		Total megabyte-milliseconds taken by all map tasks=30373888
+		Total megabyte-milliseconds taken by all reduce tasks=1400832
+	Map-Reduce Framework
+		Map input records=11540000
+		Map output records=5769470
+		Map output bytes=121158870
+		Map output materialized bytes=1935476
+		Input split bytes=416
+		Combine input records=5769470
+		Combine output records=80640
+		Reduce input groups=20160
+		Reduce shuffle bytes=1935476
+		Reduce input records=80640
+		Reduce output records=20160
+		Spilled Records=161280
+		Shuffled Maps =4
+		Failed Shuffles=0
+		Merged Map outputs=4
+		GC time elapsed (ms)=317
+		CPU time spent (ms)=32760
+		Physical memory (bytes) snapshot=1573494784
+		Virtual memory (bytes) snapshot=10891862016
+		Total committed heap usage (bytes)=1168113664
+		Peak Map Physical memory (bytes)=345026560
+		Peak Map Virtual memory (bytes)=2182860800
+		Peak Reduce Physical memory (bytes)=224079872
+		Peak Reduce Virtual memory (bytes)=2174767104
+	Q1
+		ExitTapsSkipped=5770530
+		MalformedRecords=0
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=525083878
+	File Output Format Counters 
+		Bytes Written=463680
+2026-11-22 04:13:17,489 INFO streaming.StreamJob: Output directory: /transit/out/comb_yes
+ELAPSED_SECONDS=31

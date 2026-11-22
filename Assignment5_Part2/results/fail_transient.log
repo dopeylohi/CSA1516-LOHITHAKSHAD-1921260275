@@ -1,19 +1,19 @@
-packageJobJar: [/tmp/hadoop-unjar16007651840291677127/] [] /tmp/streamjob17580861476072159904.jar tmpDir=null
-2026-11-22 03:50:36,796 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at localhost/127.0.0.1:8032
-2026-11-22 03:50:36,933 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at localhost/127.0.0.1:8032
-2026-11-22 03:50:37,146 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/lohi/.staging/job_1795317807281_0023
-2026-11-22 03:50:37,473 INFO mapred.FileInputFormat: Total input files to process : 1
-2026-11-22 03:50:37,538 INFO mapreduce.JobSubmitter: number of splits:4
-2026-11-22 03:50:37,686 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1795317807281_0023
-2026-11-22 03:50:37,686 INFO mapreduce.JobSubmitter: Executing with tokens: []
-2026-11-22 03:50:37,825 INFO conf.Configuration: resource-types.xml not found
-2026-11-22 03:50:37,826 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
-2026-11-22 03:50:37,872 INFO impl.YarnClientImpl: Submitted application application_1795317807281_0023
-2026-11-22 03:50:37,899 INFO mapreduce.Job: The url to track the job: http://lol.localdomain:8088/proxy/application_1795317807281_0023/
-2026-11-22 03:50:37,900 INFO mapreduce.Job: Running job: job_1795317807281_0023
-2026-11-22 03:50:44,019 INFO mapreduce.Job: Job job_1795317807281_0023 running in uber mode : false
-2026-11-22 03:50:44,020 INFO mapreduce.Job:  map 0% reduce 0%
-2026-11-22 03:50:49,143 INFO mapreduce.Job: Task Id : attempt_1795317807281_0023_m_000000_0, Status : FAILED
+packageJobJar: [/tmp/hadoop-unjar2370262930371799489/] [] /tmp/streamjob10408730428479675007.jar tmpDir=null
+2026-11-22 04:25:38,916 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at localhost/127.0.0.1:8032
+2026-11-22 04:25:39,053 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at localhost/127.0.0.1:8032
+2026-11-22 04:25:39,239 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/lohi/.staging/job_1795319776833_0024
+2026-11-22 04:25:39,563 INFO mapred.FileInputFormat: Total input files to process : 1
+2026-11-22 04:25:39,614 INFO mapreduce.JobSubmitter: number of splits:4
+2026-11-22 04:25:39,775 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1795319776833_0024
+2026-11-22 04:25:39,775 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2026-11-22 04:25:39,932 INFO conf.Configuration: resource-types.xml not found
+2026-11-22 04:25:39,932 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2026-11-22 04:25:39,983 INFO impl.YarnClientImpl: Submitted application application_1795319776833_0024
+2026-11-22 04:25:40,011 INFO mapreduce.Job: The url to track the job: http://lol.localdomain:8088/proxy/application_1795319776833_0024/
+2026-11-22 04:25:40,012 INFO mapreduce.Job: Running job: job_1795319776833_0024
+2026-11-22 04:25:45,089 INFO mapreduce.Job: Job job_1795319776833_0024 running in uber mode : false
+2026-11-22 04:25:45,090 INFO mapreduce.Job:  map 0% reduce 0%
+2026-11-22 04:25:50,194 INFO mapreduce.Job: Task Id : attempt_1795319776833_0024_m_000000_0, Status : FAILED
 Error: java.lang.RuntimeException: PipeMapRed.waitOutputThreads(): subprocess failed with code 1
 	at org.apache.hadoop.streaming.PipeMapRed.waitOutputThreads(PipeMapRed.java:326)
 	at org.apache.hadoop.streaming.PipeMapRed.mapRedFinished(PipeMapRed.java:539)
@@ -28,12 +28,12 @@ Error: java.lang.RuntimeException: PipeMapRed.waitOutputThreads(): subprocess fa
 	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1899)
 	at org.apache.hadoop.mapred.YarnChild.main(YarnChild.java:172)
 
-2026-11-22 03:50:58,255 INFO mapreduce.Job:  map 25% reduce 0%
-2026-11-22 03:51:00,288 INFO mapreduce.Job:  map 75% reduce 0%
-2026-11-22 03:51:05,398 INFO mapreduce.Job:  map 100% reduce 0%
-2026-11-22 03:51:06,404 INFO mapreduce.Job:  map 100% reduce 100%
-2026-11-22 03:51:06,413 INFO mapreduce.Job: Job job_1795317807281_0023 completed successfully
-2026-11-22 03:51:06,488 INFO mapreduce.Job: Counters: 59
+2026-11-22 04:25:58,332 INFO mapreduce.Job:  map 25% reduce 0%
+2026-11-22 04:25:59,354 INFO mapreduce.Job:  map 75% reduce 0%
+2026-11-22 04:26:03,416 INFO mapreduce.Job:  map 100% reduce 50%
+2026-11-22 04:26:04,422 INFO mapreduce.Job:  map 100% reduce 100%
+2026-11-22 04:26:04,432 INFO mapreduce.Job: Job job_1795319776833_0024 completed successfully
+2026-11-22 04:26:04,541 INFO mapreduce.Job: Counters: 59
 	File System Counters
 		FILE: Number of bytes read=1935464
 		FILE: Number of bytes written=5555936
@@ -53,14 +53,14 @@ Error: java.lang.RuntimeException: PipeMapRed.waitOutputThreads(): subprocess fa
 		Launched reduce tasks=2
 		Other local map tasks=1
 		Data-local map tasks=4
-		Total time spent by all maps in occupied slots (ms)=115380
-		Total time spent by all reduces in occupied slots (ms)=20948
-		Total time spent by all map tasks (ms)=57690
-		Total time spent by all reduce tasks (ms)=10474
-		Total vcore-milliseconds taken by all map tasks=57690
-		Total vcore-milliseconds taken by all reduce tasks=10474
-		Total megabyte-milliseconds taken by all map tasks=29537280
-		Total megabyte-milliseconds taken by all reduce tasks=5362688
+		Total time spent by all maps in occupied slots (ms)=97974
+		Total time spent by all reduces in occupied slots (ms)=16080
+		Total time spent by all map tasks (ms)=48987
+		Total time spent by all reduce tasks (ms)=8040
+		Total vcore-milliseconds taken by all map tasks=48987
+		Total vcore-milliseconds taken by all reduce tasks=8040
+		Total megabyte-milliseconds taken by all map tasks=25081344
+		Total megabyte-milliseconds taken by all reduce tasks=4116480
 	Map-Reduce Framework
 		Map input records=11540001
 		Map output records=5769471
@@ -77,15 +77,15 @@ Error: java.lang.RuntimeException: PipeMapRed.waitOutputThreads(): subprocess fa
 		Shuffled Maps =8
 		Failed Shuffles=0
 		Merged Map outputs=8
-		GC time elapsed (ms)=271
-		CPU time spent (ms)=33860
-		Physical memory (bytes) snapshot=1771728896
-		Virtual memory (bytes) snapshot=13051121664
+		GC time elapsed (ms)=248
+		CPU time spent (ms)=28540
+		Physical memory (bytes) snapshot=1785982976
+		Virtual memory (bytes) snapshot=13049708544
 		Total committed heap usage (bytes)=1317011456
-		Peak Map Physical memory (bytes)=338391040
-		Peak Map Virtual memory (bytes)=2180272128
-		Peak Reduce Physical memory (bytes)=222142464
-		Peak Reduce Virtual memory (bytes)=2173534208
+		Peak Map Physical memory (bytes)=343965696
+		Peak Map Virtual memory (bytes)=2180874240
+		Peak Reduce Physical memory (bytes)=234287104
+		Peak Reduce Virtual memory (bytes)=2178752512
 	Q1
 		ExitTapsSkipped=5770530
 		MalformedRecords=0
@@ -100,5 +100,5 @@ Error: java.lang.RuntimeException: PipeMapRed.waitOutputThreads(): subprocess fa
 		Bytes Read=525083920
 	File Output Format Counters 
 		Bytes Written=463680
-2026-11-22 03:51:06,489 INFO streaming.StreamJob: Output directory: /transit/out/fail_transient
-ELAPSED_SECONDS=31
+2026-11-22 04:26:04,541 INFO streaming.StreamJob: Output directory: /transit/out/fail_transient
+ELAPSED_SECONDS=27

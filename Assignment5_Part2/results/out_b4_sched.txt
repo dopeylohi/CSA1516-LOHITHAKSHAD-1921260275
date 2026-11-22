@@ -1,0 +1,14 @@
+=== fifo (long: 2 GB job in queue default; short: 100 MB job in queue default, submitted 30 s later)
+>>> both jobs are running now: open http://localhost:8088/cluster/scheduler and take the screenshot
+RESULT fifo: short job finished in 45 s, long job in 72 s
+Queue Name : batch
+	Capacity : 70.00%
+	Current Capacity : .00%
+	Maximum Capacity : 70.00%
+Queue Name : adhoc
+	Capacity : 30.00%
+	Current Capacity : .00%
+	Maximum Capacity : 100.00%
+=== capacity (long: 2 GB job in queue batch; short: 100 MB job in queue adhoc, submitted 30 s later)
+>>> both jobs are running now: open http://localhost:8088/cluster/scheduler and take the screenshot
+RESULT capacity: short job finished in 35 s, long job in 85 s

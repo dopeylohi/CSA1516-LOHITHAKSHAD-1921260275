@@ -1,0 +1,53 @@
+relational table 'fare' created: 16 rows
+===== B1 KEY LINES =====
+### list files
+Found 9 items
+-rw-r--r--   1 lohi supergroup   1000.6 M 2026-11-22 03:41 /transit/raw/ds_1000mb.csv
+-rw-r--r--   1 lohi supergroup    100.7 M 2026-11-22 03:38 /transit/raw/ds_100mb.csv
+-rw-r--r--   1 lohi supergroup      2.0 G 2026-11-22 03:44 /transit/raw/ds_2000mb.csv
+-rw-r--r--   1 lohi supergroup    500.7 M 2026-11-22 03:40 /transit/raw/ds_500mb.csv
+-rw-r--r--   1 lohi supergroup    500.7 M 2026-11-22 04:08 /transit/raw/gate_log_500mb.csv
+-rw-r--r--   1 lohi supergroup    500.7 M 2026-11-22 03:50 /transit/raw/poison_500mb.csv
+-rw-r--r--   1 lohi supergroup    500.7 M 2026-11-22 03:49 /transit/raw/skew_hot_500mb.csv
+-rw-r--r--   1 lohi supergroup    500.7 M 2026-11-22 03:48 /transit/raw/skew_uniform_500mb.csv
+-rw-r--r--   1 lohi supergroup     20.8 M 2026-11-22 03:37 /transit/raw/topn_20mb.csv
+### space usage
+1000.6 M  1000.6 M  /transit/raw/ds_1000mb.csv
+100.7 M   100.7 M   /transit/raw/ds_100mb.csv
+2.0 G     2.0 G     /transit/raw/ds_2000mb.csv
+500.7 M   500.7 M   /transit/raw/ds_500mb.csv
+500.7 M   500.7 M   /transit/raw/gate_log_500mb.csv
+500.7 M   500.7 M   /transit/raw/poison_500mb.csv
+500.7 M   500.7 M   /transit/raw/skew_hot_500mb.csv
+500.7 M   500.7 M   /transit/raw/skew_uniform_500mb.csv
+20.8 M    20.8 M    /transit/raw/topn_20mb.csv
+Filesystem                 Size   Used  Available  Use%
+hdfs://localhost:9000  1006.9 G  6.1 G    936.7 G    1%
+### file attributes
+replication=1 blocksize=134217728 bytes=525071590
+--- fsck, replication 1
+0. BP-729164294-127.0.1.1-1795317792876:blk_1073742264_1440 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DIS
+1. BP-729164294-127.0.1.1-1795317792876:blk_1073742265_1441 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DIS
+2. BP-729164294-127.0.1.1-1795317792876:blk_1073742266_1442 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DIS
+3. BP-729164294-127.0.1.1-1795317792876:blk_1073742267_1443 len=122418406 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DIS
+ Number of data-nodes:	1
+ Total blocks (validated):	4 (avg. block size 131267897 B)
+ Under-replicated blocks:	0 (0.0 %)
+ Default replication factor:	1
+ Average block replication:	1.0
+ Missing replicas:		0 (0.0 %)
+--- fsck, after setrep 2
+/transit/raw/gate_log_500mb.csv 525071590 bytes, replicated: replication=2, 4 block(s):  Under replicated BP-729164294-127.0.1.1-1795317792876:blk_1073742264_1440. Target
+ Under replicated BP-729164294-127.0.1.1-1795317792876:blk_1073742265_1441. Target Replicas is 2 but found 1 live replica(s), 0 decommissioned replica(s), 0 decommissioni
+ Under replicated BP-729164294-127.0.1.1-1795317792876:blk_1073742266_1442. Target Replicas is 2 but found 1 live replica(s), 0 decommissioned replica(s), 0 decommissioni
+ Under replicated BP-729164294-127.0.1.1-1795317792876:blk_1073742267_1443. Target Replicas is 2 but found 1 live replica(s), 0 decommissioned replica(s), 0 decommissioni
+0. BP-729164294-127.0.1.1-1795317792876:blk_1073742264_1440 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DIS
+1. BP-729164294-127.0.1.1-1795317792876:blk_1073742265_1441 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DIS
+2. BP-729164294-127.0.1.1-1795317792876:blk_1073742266_1442 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DIS
+3. BP-729164294-127.0.1.1-1795317792876:blk_1073742267_1443 len=122418406 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DIS
+ Number of data-nodes:	1
+ Total blocks (validated):	4 (avg. block size 131267897 B)
+ Under-replicated blocks:	4 (100.0 %)
+ Default replication factor:	1
+ Average block replication:	1.0
+ Missing replicas:		4 (50.0 %)

@@ -1,0 +1,264 @@
+######## data
+-rw-r--r-- 1 lohi lohi 1001M Nov 22 03:32 /home/lohi/csa15_a5/data/ds_1000mb.csv
+-rw-r--r-- 1 lohi lohi  101M Nov 22 03:31 /home/lohi/csa15_a5/data/ds_100mb.csv
+-rw-r--r-- 1 lohi lohi  2.0G Nov 22 03:34 /home/lohi/csa15_a5/data/ds_2000mb.csv
+-rw-r--r-- 1 lohi lohi  501M Nov 22 03:32 /home/lohi/csa15_a5/data/ds_500mb.csv
+-rw-r--r-- 1 lohi lohi   128 Nov 22 04:08 /home/lohi/csa15_a5/data/fare_table.csv
+-rw-r--r-- 1 lohi lohi  501M Nov 22 04:25 /home/lohi/csa15_a5/data/poison_500mb.csv
+-rw-r--r-- 1 lohi lohi  501M Nov 22 04:07 /home/lohi/csa15_a5/data/skew_hot_500mb.csv
+-rw-r--r-- 1 lohi lohi  501M Nov 22 04:07 /home/lohi/csa15_a5/data/skew_uniform_500mb.csv
+-rw-r--r-- 1 lohi lohi   21M Nov 22 04:07 /home/lohi/csa15_a5/data/topn_20mb.csv
+2026-11-04 08:06:29,S082,G4,C234053,ENTRY,0
+2026-11-07 14:50:58,S018,G2,C619176,EXIT,31.10
+2026-11-03 19:46:02,S004,G1,C588508,ENTRY,0
+
+######## b1
+relational table 'fare' created: 16 rows
+===== B1 KEY LINES =====
+### list files
+Found 9 items
+-rw-r--r--   1 lohi supergroup   1000.6 M 2026-11-22 03:41 /transit/raw/ds_1000mb.csv
+-rw-r--r--   1 lohi supergroup    100.7 M 2026-11-22 03:38 /transit/raw/ds_100mb.csv
+-rw-r--r--   1 lohi supergroup      2.0 G 2026-11-22 03:44 /transit/raw/ds_2000mb.csv
+-rw-r--r--   1 lohi supergroup    500.7 M 2026-11-22 03:40 /transit/raw/ds_500mb.csv
+-rw-r--r--   1 lohi supergroup    500.7 M 2026-11-22 04:08 /transit/raw/gate_log_500mb.csv
+-rw-r--r--   1 lohi supergroup    500.7 M 2026-11-22 03:50 /transit/raw/poison_500mb.csv
+-rw-r--r--   1 lohi supergroup    500.7 M 2026-11-22 03:49 /transit/raw/skew_hot_500mb.csv
+-rw-r--r--   1 lohi supergroup    500.7 M 2026-11-22 03:48 /transit/raw/skew_uniform_500mb.csv
+-rw-r--r--   1 lohi supergroup     20.8 M 2026-11-22 03:37 /transit/raw/topn_20mb.csv
+### space usage
+1000.6 M  1000.6 M  /transit/raw/ds_1000mb.csv
+100.7 M   100.7 M   /transit/raw/ds_100mb.csv
+2.0 G     2.0 G     /transit/raw/ds_2000mb.csv
+500.7 M   500.7 M   /transit/raw/ds_500mb.csv
+500.7 M   500.7 M   /transit/raw/gate_log_500mb.csv
+500.7 M   500.7 M   /transit/raw/poison_500mb.csv
+500.7 M   500.7 M   /transit/raw/skew_hot_500mb.csv
+500.7 M   500.7 M   /transit/raw/skew_uniform_500mb.csv
+20.8 M    20.8 M    /transit/raw/topn_20mb.csv
+Filesystem                 Size   Used  Available  Use%
+hdfs://localhost:9000  1006.9 G  6.1 G    936.7 G    1%
+### file attributes
+replication=1 blocksize=134217728 bytes=525071590
+--- fsck, replication 1
+0. BP-729164294-127.0.1.1-1795317792876:blk_1073742264_1440 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DIS
+1. BP-729164294-127.0.1.1-1795317792876:blk_1073742265_1441 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DIS
+2. BP-729164294-127.0.1.1-1795317792876:blk_1073742266_1442 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DIS
+3. BP-729164294-127.0.1.1-1795317792876:blk_1073742267_1443 len=122418406 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DIS
+ Number of data-nodes:	1
+ Total blocks (validated):	4 (avg. block size 131267897 B)
+ Under-replicated blocks:	0 (0.0 %)
+ Default replication factor:	1
+ Average block replication:	1.0
+ Missing replicas:		0 (0.0 %)
+--- fsck, after setrep 2
+/transit/raw/gate_log_500mb.csv 525071590 bytes, replicated: replication=2, 4 block(s):  Under replicated BP-729164294-127.0.1.1-1795317792876:blk_1073742264_1440. Target
+ Under replicated BP-729164294-127.0.1.1-1795317792876:blk_1073742265_1441. Target Replicas is 2 but found 1 live replica(s), 0 decommissioned replica(s), 0 decommissioni
+ Under replicated BP-729164294-127.0.1.1-1795317792876:blk_1073742266_1442. Target Replicas is 2 but found 1 live replica(s), 0 decommissioned replica(s), 0 decommissioni
+ Under replicated BP-729164294-127.0.1.1-1795317792876:blk_1073742267_1443. Target Replicas is 2 but found 1 live replica(s), 0 decommissioned replica(s), 0 decommissioni
+0. BP-729164294-127.0.1.1-1795317792876:blk_1073742264_1440 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DIS
+1. BP-729164294-127.0.1.1-1795317792876:blk_1073742265_1441 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DIS
+2. BP-729164294-127.0.1.1-1795317792876:blk_1073742266_1442 len=134217728 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DIS
+3. BP-729164294-127.0.1.1-1795317792876:blk_1073742267_1443 len=122418406 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DS-5f742639-7f6e-4606-ae08-d52c270d5783,DIS
+ Number of data-nodes:	1
+ Total blocks (validated):	4 (avg. block size 131267897 B)
+ Under-replicated blocks:	4 (100.0 %)
+ Default replication factor:	1
+ Average block replication:	1.0
+ Missing replicas:		4 (50.0 %)
+
+######## b2_tests
+
+=== TEST sample (input: sample_part1.csv sample_part2.csv)
+-- expected:
+S001|2026-11-01|08	3
+S001|2026-11-01|09	1
+S002|2026-11-01|08	2
+S003|2026-11-01|09	2
+-- actual (Hadoop):
+S001|2026-11-01|08	3
+S001|2026-11-01|09	1
+S002|2026-11-01|08	2
+S003|2026-11-01|09	2
+RESULT: PASS
+Launched map tasks=2
+Map input records=10
+Map output records=8
+Combine input records=8
+Combine output records=6
+ExitTapsSkipped=2
+MalformedRecords=0
+
+=== TEST malformed (input: malformed.csv)
+-- expected:
+S001|2026-11-01|08	1
+S002|2026-11-01|08	1
+-- actual (Hadoop):
+S001|2026-11-01|08	1
+S002|2026-11-01|08	1
+RESULT: PASS
+Launched map tasks=2
+Map input records=6
+Map output records=2
+Combine input records=2
+Combine output records=2
+ExitTapsSkipped=0
+MalformedRecords=4
+
+=== TEST exit_only (input: exit_only.csv)
+-- expected:
+-- actual (Hadoop):
+RESULT: PASS
+Launched map tasks=2
+Map input records=3
+Map output records=0
+Combine input records=0
+Combine output records=0
+ExitTapsSkipped=3
+MalformedRecords=0
+
+=== TEST empty (input: empty.csv)
+-- expected:
+-- actual (Hadoop):
+RESULT: PASS
+Launched map tasks=1
+Map input records=0
+Map output records=0
+Combine input records=0
+Combine output records=0
+ExitTapsSkipped=0
+MalformedRecords=0
+
+=== Q1 and Q2 on a 20 MB synthetic file vs an independent Python script (no Hadoop)
+Q1: Hadoop output MATCHES independent script (8640 keys)
+Q2: Hadoop top-5 MATCHES independent script
+Q2 top-5 per day (Hadoop two-job chain):
+2026-11-01	S049	719
+2026-11-01	S059	718
+2026-11-01	S083	711
+2026-11-01	S096	719
+2026-11-01	S105	712
+2026-11-02	S045	718
+2026-11-02	S065	718
+2026-11-02	S078	719
+2026-11-02	S086	721
+2026-11-02	S107	724
+2026-11-03	S016	726
+2026-11-03	S028	720
+2026-11-03	S030	711
+2026-11-03	S076	739
+2026-11-03	S109	729
+--- B1.3 data OUT: job output -> local file -> relational table
+rows loaded into table top_stations: 15
+('2026-11-01', 'S049', 719)
+('2026-11-01', 'S096', 719)
+('2026-11-01', 'S059', 718)
+('2026-11-01', 'S105', 712)
+('2026-11-01', 'S083', 711)
+
+######## b2_combiner
+[run] without combiner
+[run] with combiner
+label    splits  map_tasks  reduce_tasks  map_in    map_out  comb_in  comb_out  shuffle_bytes  reduce_groups  reduce_in  elapsed_s
+without  4       4          1             11540000  5769470  0        0         132697834      20160          5769470    34
+with     4       4          1             11540000  5769470  5769470  80640     1935476        20160          80640      31
+Outputs identical with and without combiner
+
+######## b3_scale
+[run] 100 MB, reducers=1
+[run] 100 MB, reducers=2
+[run] 100 MB, reducers=4
+[run] 500 MB, reducers=1
+[run] 500 MB, reducers=2
+[run] 500 MB, reducers=4
+[run] 1000 MB, reducers=1
+[run] 1000 MB, reducers=2
+[run] 1000 MB, reducers=4
+[run] 2000 MB, reducers=1
+[run] 2000 MB, reducers=2
+[run] 2000 MB, reducers=4
+label      splits  map_tasks  reduce_tasks  map_in    map_out   comb_in   comb_out  shuffle_bytes  reduce_groups  reduce_in  elapsed_s
+100MB_r1   2       2          1             2320000   1160586   1160586   40320     967691         20160          40320      21
+100MB_r2   2       2          2             2320000   1160586   1160586   40320     967703         20160          40320      24
+100MB_r4   2       2          4             2320000   1160586   1160586   40320     967727         20160          40320      29
+500MB_r1   4       4          1             11540000  5769470   5769470   80640     1935476        20160          80640      33
+500MB_r2   4       4          2             11540000  5769470   5769470   80640     1935500        20160          80640      34
+500MB_r4   4       4          4             11540000  5769470   5769470   80640     1935548        20160          80640      41
+1000MB_r1  8       9          1             23060000  11527205  11527205  161280    3870988        20160          161280     52
+1000MB_r2  8       9          2             23060000  11527205  11527205  161280    3871036        20160          161280     53
+1000MB_r4  8       9          4             23060000  11527205  11527205  161280    3871132        20160          161280     56
+2000MB_r1  16      16         1             46100000  23048960  23048960  322560    7742023        20160          322560     79
+2000MB_r2  16      16         2             46100000  23048960  23048960  322560    7742119        20160          322560     74
+2000MB_r4  16      17         4             46100000  23048960  23048960  322560    7742311        20160          322560     81
+
+######## b3_skew
+### PREDICTION made before running the jobs - Sun Nov 22 04:23:54 UTC 2026
+skew_uniform_500mb.csv: predicted records per reducer [1444049, 1441238, 1441351, 1442218] -> slowest expected: reducer 0 (25.0% of all records)
+skew_hot_500mb.csv: predicted records per reducer [1610146, 1441574, 1273538, 1444493] -> slowest expected: reducer 0 (27.9% of all records)
+[run] skew_uniform (4 reducers, no combiner)
+--- uniform: job_1795319776833_0022, total elapsed 37 s
+task_1795319776833_0022_r_000000 elapsed_s=5.4 reduce_input_records=1444049 shuffle_bytes=33213151
+task_1795319776833_0022_r_000001 elapsed_s=6.2 reduce_input_records=1441238 shuffle_bytes=33148498
+task_1795319776833_0022_r_000002 elapsed_s=5.6 reduce_input_records=1441351 shuffle_bytes=33151097
+task_1795319776833_0022_r_000003 elapsed_s=5.1 reduce_input_records=1442218 shuffle_bytes=33171038
+17304  17304  /transit/out/skew_uniform/part-00000
+17256  17256  /transit/out/skew_uniform/part-00001
+17256  17256  /transit/out/skew_uniform/part-00002
+17304  17304  /transit/out/skew_uniform/part-00003
+[run] skew_hot (4 reducers, no combiner)
+--- hot: job_1795319776833_0023, total elapsed 35 s
+task_1795319776833_0023_r_000000 elapsed_s=5.9 reduce_input_records=1610146 shuffle_bytes=37033382
+task_1795319776833_0023_r_000001 elapsed_s=6.3 reduce_input_records=1441574 shuffle_bytes=33156226
+task_1795319776833_0023_r_000002 elapsed_s=6.1 reduce_input_records=1273538 shuffle_bytes=29291398
+task_1795319776833_0023_r_000003 elapsed_s=5.7 reduce_input_records=1444493 shuffle_bytes=33223363
+16604  16604  /transit/out/skew_hot/part-00000
+16555  16555  /transit/out/skew_hot/part-00001
+16552  16552  /transit/out/skew_hot/part-00002
+16601  16601  /transit/out/skew_hot/part-00003
+
+######## b4_failure
+
+=== failure mode: transient (poison record CFAIL in the first split, mapreduce.map.maxattempts=4)
+2026-11-22 04:25:50,194 INFO mapreduce.Job: Task Id : attempt_1795319776833_0024_m_000000_0, Status : FAILED
+2026-11-22 04:26:04,432 INFO mapreduce.Job: Job job_1795319776833_0024 completed successfully
+Failed map tasks=1
+Killed map tasks=1
+Launched map tasks=5
+-- from the container logs:
+FAULT INJECTED on record 2026-11-01 08:00:00,S001,G1,CFAIL,ENTRY,0 in attempt_1795319776833_0024_m_000000_0
+
+=== failure mode: permanent (poison record CFAIL in the first split, mapreduce.map.maxattempts=4)
+2026-11-22 04:26:32,127 INFO mapreduce.Job: Task Id : attempt_1795319776833_0025_m_000000_0, Status : FAILED
+2026-11-22 04:26:36,179 INFO mapreduce.Job: Task Id : attempt_1795319776833_0025_m_000000_1, Status : FAILED
+2026-11-22 04:26:40,209 INFO mapreduce.Job: Task Id : attempt_1795319776833_0025_m_000000_2, Status : FAILED
+2026-11-22 04:26:44,250 INFO mapreduce.Job: Job job_1795319776833_0025 failed with state FAILED due to: Task failed task_1795319776833_0025_m_000000
+Job failed as tasks failed. failedMaps:1 failedReduces:0 killedMaps:0 killedReduces: 0
+Failed map tasks=4
+Killed map tasks=1
+Launched map tasks=7
+-- from the container logs:
+FAULT INJECTED on record 2026-11-01 08:00:00,S001,G1,CFAIL,ENTRY,0 in attempt_1795319776833_0025_m_000000_0
+FAULT INJECTED on record 2026-11-01 08:00:00,S001,G1,CFAIL,ENTRY,0 in attempt_1795319776833_0025_m_000000_3
+FAULT INJECTED on record 2026-11-01 08:00:00,S001,G1,CFAIL,ENTRY,0 in attempt_1795319776833_0025_m_000000_2
+FAULT INJECTED on record 2026-11-01 08:00:00,S001,G1,CFAIL,ENTRY,0 in attempt_1795319776833_0025_m_000000_1
+--- transient run vs clean run (expect 1 changed line: the poison record is a valid ENTRY at S001 2026-11-01 08)
+9c9
+< S001|2026-11-01|08	286
+---
+> S001|2026-11-01|08	287
+
+######## b4_sched
+=== fifo (long: 2 GB job in queue default; short: 100 MB job in queue default, submitted 30 s later)
+>>> both jobs are running now: open http://localhost:8088/cluster/scheduler and take the screenshot
+RESULT fifo: short job finished in 45 s, long job in 72 s
+Queue Name : batch
+	Capacity : 70.00%
+	Current Capacity : .00%
+	Maximum Capacity : 70.00%
+Queue Name : adhoc
+	Capacity : 30.00%
+	Current Capacity : .00%
+	Maximum Capacity : 100.00%
+=== capacity (long: 2 GB job in queue batch; short: 100 MB job in queue adhoc, submitted 30 s later)
+>>> both jobs are running now: open http://localhost:8088/cluster/scheduler and take the screenshot
+RESULT capacity: short job finished in 35 s, long job in 85 s
